@@ -7,6 +7,16 @@
   align-items: center;
 }
 
+.background {
+  background-image: url('/images/background1.jpg');
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+  display: flex;
+}
+
 .main {
   padding: 5rem 0;
   flex: 1;

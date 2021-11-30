@@ -1,0 +1,27 @@
+.uploadedCard {
+    background: white;
+    width: 44%;
+    margin: 16px 3%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.waecImage {
+    background-image: url('/images/waec.png');
+}
+
+.jambImage {
+    background-image: url('/images/jamb.jpg');
+}
+
+.degreeImage {
+    background-image: url('/images/degree.jpg');
+}
+
+@media screen and (max-width: 600px) {
+    .uploadedCard {
+        width: 100%;
+        margin: 16px 0;
+    }
+}

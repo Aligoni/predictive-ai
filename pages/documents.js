@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
+import AddDocument from '../components/AddDocument'
 import styles from '../styles/Documents.module.scss'
 
 const uploaded = [
@@ -62,6 +63,14 @@ export default function Documents() {
                     )}
                 </div>
             )
+        } else {
+            return (
+                <div className="flex justify-center w-full p-6 mt-4">
+                    <div className="flex flex-1 md:flex-initial justify-center items-center p-10 rounded-xl border-1 border-blue-800 bg-blue-400 shadow-md text-white font-bold text-xl text-center">
+                        No document uploaded yet
+                    </div>
+                </div>
+            )
         }
     }
 
@@ -69,10 +78,12 @@ export default function Documents() {
         <div className="min-h-screen bg-gray-100">
             <Navbar page="Documents"/>
 
-            <div className="py-4 text-center text-bold text-4xl bg-white shadow-md">Uploaded Documents</div>
+            <div className="py-4 text-center text-bold text-2xl md:text-4xl bg-white shadow-md">Uploaded Documents</div>
             {displayUploadedDocuments()}
 
-            <div className="py-4 text-center text-bold text-4xl bg-white shadow-lg mt-6">Add a New Document</div>
+            <div className="py-4 text-center text-bold text-2xl md:text-4xl bg-white shadow-md mt-6">Add a New Document</div>
+
+            <AddDocument />
         </div>
     )
 }

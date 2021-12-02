@@ -38,7 +38,7 @@ export default function Navbar(props) {
     return (
         <div className="flex items-center justify-between px-6 shadow-md bg-blue-700">
             <div className="flex items-center justify-center">
-                <img className="w-14 h-14 ml-3" src="/favicon.ico" alt="logo"></img>
+                <img className="w-14 h-14 md:ml-3" src="/favicon.ico" alt="logo"></img>
                 <div className="ml-3 text-xl font-bold text-gray-200">Result evaluator</div>
             </div>
             <div className="items-center hidden md:flex">

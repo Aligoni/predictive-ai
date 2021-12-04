@@ -7,7 +7,7 @@ import {useState} from 'react'
 const pages = [
     {name: 'Dashboard', link: 'dashboard'},
     {name: 'Documents', link: 'documents'},
-    {name: 'History', link: 'history'},
+    {name: 'Profile', link: 'profile'},
     {name: 'Sign Out', link: 'logout'}
 ]
 

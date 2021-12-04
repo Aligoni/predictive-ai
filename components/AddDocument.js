@@ -18,6 +18,7 @@ export default function AddDocument () {
     const [buttonLoading, setButtonLoading] = useState(false)
     const [registeredWaecSubjects, setRegisteredWaecSubjects] = useState(1)
     const [loading, setLoading] = useState(false)
+    const [documentFile, setDocumentFile] = useState()
 
     const selectType = (event) => {
         const form = event.currentTarget;
@@ -32,7 +33,7 @@ export default function AddDocument () {
 
                 setButtonLoading(false)
                 setLoading(false)
-                toast.success('WAEC selected')
+                toast.info('WAEC selected')
                 setType(typeList[typeChosen])
             }, 2000)
         }
@@ -47,11 +48,35 @@ export default function AddDocument () {
         setRegisteredWaecSubjects(registeredWaecSubjects + 1)
     }
 
+    const submitDocument = event => {
+        const form = event.currentTarget;
+        event.preventDefault();
+        event.stopPropagation();
+
+        let selectedSubjects = []
+        for (let i = 0; i < form.subject.length; i++)
+            selectedSubjects.push(form.subject[i].value)
+
+        if (new Set(selectedSubjects).size != selectedSubjects.length) {
+            toast.error('Error: Duplicate Subjects selected')
+            return
+        }
+        
+        if (type == 'WAEC') {
+            if (selectedSubjects.length < 8) {
+                toast.error('Error: Must add at least eight subjects')
+                return
+            }
+        }
+
+        toast.info('Document validation')
+    }
+
     const displayDocumentFields = () => {
         if (type == 'WAEC') {
             return (
                 <Form
-                    onSubmit={selectType}
+                    onSubmit={ submitDocument}
                     className="pb-4"
                 >
                     <div className="md:flex md:items-start">
@@ -127,7 +152,7 @@ export default function AddDocument () {
                                 className="flex-1"
                                 disabled
                             >
-                                <option value='Mathematics'>English Language</option>
+                                <option value='English Language'>English Language</option>
                             </Form.Control>
                         </Form.Group>
                         <Form.Group className="md:flex-1 md:px-10 py-2 py-md-0 flex items-center" controlId="grade">
@@ -178,25 +203,166 @@ export default function AddDocument () {
                         </div>
                     )}
 
-                    <div className="flex items-center justify-end p-4">
-                        <div onClick={addWaecSubject} className="flex items-center cursor-pointer md:mx-10">
-                            <IconContext.Provider value={{color: 'blue', size: 20}}>
+                    <div className="flex md:items-center flex-col md:flex-row justify-between p-4">
+                        <div onClick={addWaecSubject} className="text-right flex items-center cursor-pointer md:mx-10">
+                            <IconContext.Provider value={{ color: 'blue', size: 20 }}>
                                 <BsPlusCircle />
                             </IconContext.Provider>
-                            <p className="text-lg ml-2 text-blue-800">Add Subject</p>                       
+                            <p className="text-lg ml-2 text-blue-800">Add Subject</p>
+                        </div>
+
+                        <div className="md:mx-10 pt-4 md:pt-0">
+                            <Form.Group controlId="file">
+                                <Form.Label>Document File</Form.Label>
+                                <Form.Control
+                                    required
+                                    type="file"
+                                    multiple
+                                    onChange={(e) => {
+                                        setDocumentFile(Object.values(e.target.files))
+                                    }}
+                                />
+                            </Form.Group>
                         </div>
                     </div>
 
                     <div className="md:flex md:items-end md:justify-between p-4 px-md-12 md:mx-6 border-t">
                         <div className="text-xl text-red-700 flex-1 mb-4 mb-md-0">
-                            Please confirm your selection before uploading as you won't be able to edit after. Uploading means you agree to our Terms and Conditions. 
+                            Please confirm your selection before uploading as you won't be able to edit after. Submitting means you agree to our Terms and Conditions. 
                         </div>
                         <div className="flex-1 text-right">
                             <Button
                                 variant="primary"
                                 type="submit"
                             >
-                                Upload Document
+                                Submit Document
+                            </Button>
+                        </div>
+                    </div>
+                </Form>
+            )
+        }
+
+        if (type == 'JAMB') {
+            return (
+                <Form
+                    onSubmit={submitDocument}
+                    className="pb-4"
+                >
+                    <div className="md:flex md:items-start">
+                        <Form.Group className="md:flex-1 px-4 pt-4" controlId="name">
+                            <Form.Label>Document Name</Form.Label>
+                            <Form.Control required type="text" placeholder="e.g My First Jamb" />
+                            <Form.Text>This is to differentiate documents of the same type</Form.Text>
+                        </Form.Group>
+
+                        <Form.Group className="md:flex-1 px-4 pt-4" controlId="registrationNo">
+                            <Form.Label>Registration Number</Form.Label>
+                            <Form.Control required type="text" placeholder="e.g 41903040BD" />
+                        </Form.Group>
+                    </div>
+
+                    <div className="md:flex md:items-center">
+                        <Form.Group className="md:flex-1 px-4 pt-4 md:pb-6" controlId="year">
+                            <Form.Label>Exam Year</Form.Label>
+                            <Form.Control
+                                required
+                                as="select"
+                            >
+                                <option value=''>Select year</option>
+                                {['2021', '2020', '2019', '2018'].map((type, i) =>
+                                    <option key={i}>{type}</option>
+                                )}
+                            </Form.Control>
+                        </Form.Group>
+
+                        <Form.Group className="md:flex-1 p-4" controlId="jambScore">
+                            <Form.Label>Jamb Score</Form.Label>
+                            <Form.Control required min='1' max='400' type="number" placeholder="e.g 192" />
+                        </Form.Group>
+                    </div>
+
+                    <div className="h-1 border-b border-blue-700" />
+                    <p className="p-4 text-xl text-center text-blue-700">Subjects Written</p>
+                    <div className="h-1 border-b border-blue-700" />
+
+                    <div className="mx-4 py-4 border-b md:flex items-center">
+                        <Form.Group className="md:flex-1 md:px-10 pt-2 pt-md-0 flex items-center" controlId="subject">
+                            <Form.Label style={{ marginBottom: 0, marginRight: 20 }} >Subject 1:</Form.Label>
+                            <Form.Control
+                                required
+                                as="select"
+                                className="flex-1"
+                                disabled
+                            >
+                                <option value='Use of English'>Use of English</option>
+                            </Form.Control>
+                        </Form.Group>
+                        <Form.Group className="md:flex-1 md:px-10 py-2 py-md-0 flex items-center" controlId="score">
+                            <Form.Label className="flex-1 md:text-right md:mr-10" style={{ marginBottom: 0 }}>Score:</Form.Label>
+                            <Form.Control
+                                required
+                                type="number"
+                                min="1"
+                                max="100"
+                                className="flex-1"
+                                placeholder={0}
+                            />
+                        </Form.Group>
+                    </div>
+
+                    {Array(3).fill(0).map((index, i) =>
+                        <div key={i} className="mx-4 py-4 border-b md:flex items-center">
+                            <Form.Group className="md:flex-1 md:px-10 pt-2 pt-md-0 flex items-center" controlId="subject">
+                                <Form.Label style={{ marginBottom: 0, marginRight: 20 }} >Subject {i + 2}:</Form.Label>
+                                <Form.Control
+                                    required
+                                    as="select"
+                                    className="flex-1"
+                                >
+                                    <option value=''>Select subject</option>
+                                    {waecSubjects.map((type, i) =>
+                                        <option key={i}>{type}</option>
+                                    )}
+                                </Form.Control>
+                            </Form.Group>
+                            <Form.Group className="md:flex-1 md:px-10 py-2 py-md-0 flex items-center" controlId="score">
+                                <Form.Label className="flex-1 md:text-right md:mr-10" style={{ marginBottom: 0 }}>Score:</Form.Label>
+                                <Form.Control
+                                    required
+                                    type="number"
+                                    min="1"
+                                    max="100"
+                                    className="flex-1"
+                                    placeholder={0}
+                                />
+                            </Form.Group>
+                        </div>
+                    )}
+
+                    <div className="md:mx-10 p-4 md:flex">
+                        <Form.Group controlId="file">
+                            <Form.Label>Document File</Form.Label>
+                            <Form.Control
+                                required
+                                type="file"
+                                multiple
+                                onChange={(e) => {
+                                    setDocumentFile(Object.values(e.target.files))
+                                }}
+                            />
+                        </Form.Group>
+                    </div>
+                    <div className="md:flex md:items-end md:justify-between p-4 px-md-12 md:mx-6 border-t">
+                        <div className="text-xl text-red-700 flex-1 mb-4 mb-md-0">
+                            Please confirm your selection before uploading as you won't be able to edit after. Submitting means you agree to our Terms and Conditions.
+                        </div>
+                        <div className="flex-1 text-right">
+                            <Button
+                                variant="primary"
+                                type="submit"
+                            >
+                                Submit Document
                             </Button>
                         </div>
                     </div>
@@ -245,7 +411,7 @@ export default function AddDocument () {
                 <Spinner animation="border" variant="primary" />
             </div>}
             {!loading && type &&
-                <div className="mx-4 mt-8 md-mx-40 bg-white rounded shadow-lg">
+                <div className="mx-4 mt-8 md:mx-40 bg-white rounded shadow-lg">
                     <p className="p-4 text-xl bg-blue-700 text-white">Document Type: {type}</p>
                     {/* <div className="h-1 border-b border-blue-700"/> */}
                     {displayDocumentFields()}

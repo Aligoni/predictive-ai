@@ -42,7 +42,7 @@ export default function Documents() {
             return (
                 <div className="flex justify-start w-full flex-wrap mt-8 px-8">
                     {uploaded.map((document, i) => 
-                        <div className={`${styles.uploadedCard} ${document.type == 'WAEC' ? styles.waecImage: document.type == 'JAMB' ? styles.jambImage: document.type == 'First Degree' ? styles.degreeImage: ''} shadow-lg rounded-xl`}>
+                        <div key={i} className={`${styles.uploadedCard} ${document.type == 'WAEC' ? styles.waecImage : document.type == 'JAMB' ? styles.jambImage : document.type == 'First Degree' ? styles.degreeImage : ''} shadow-lg rounded-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105`}>
                             <div className={`${typeStyles[document.type]} rounded-xl p-4 text-lg cursor-pointer`}>
 
                                 <div className="md:flex align-items justify-between md:mb-2">

@@ -129,14 +129,18 @@ export default function AddDocument (props) {
         console.log(documentFile)
         document.fileUploaded = documentFile.name
 
-        setType('')
-        setRegisteredWaecSubjects(1)
-        setLoading(false)
-        setButtonLoading(false)
-        setDocumentFile(null)
-        toast.success('Document added successfully')
+        toast.info('Processing')
+        setTimeout(() => {
 
-        props.refreshList(document)
+            setType('')
+            setRegisteredWaecSubjects(6)
+            setLoading(false)
+            setButtonLoading(false)
+            setDocumentFile(null)
+            toast.success('Document added successfully')
+
+            props.refreshList(document)
+        }, 1500)
 
     }
 

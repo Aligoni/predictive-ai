@@ -1,4 +1,11 @@
-.uploadedCard {
+.documentCard {
+    background-color: white;
+    width: 45%;
+    margin: 2.5%;
+    border-radius: 0.25rem;
+}
+
+.resultCard {
     background: white;
     width: 44%;
     margin: 16px 3%;
@@ -21,11 +28,4 @@
 
 .necoImage {
     background-image: url('/images/neco.jpg')
-}
-
-@media screen and (max-width: 600px) {
-    .uploadedCard {
-        width: 100%;
-        margin: 16px 0;
-    }
 }

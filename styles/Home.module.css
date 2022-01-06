@@ -1,7 +1,8 @@
 
 .background {
-  background-image: url('/images/background1.jpg');
+  /* background-image: url('/images/background1.jpg'); */
   width: 100%;
+  background-color: rgb(19, 19, 19);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

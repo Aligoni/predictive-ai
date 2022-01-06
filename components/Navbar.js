@@ -8,7 +8,7 @@ const pages = [
     {name: 'Dashboard', link: 'dashboard'},
     {name: 'Documents', link: 'documents'},
     {name: 'Profile', link: 'profile'},
-    {name: 'Sign Out', link: 'logout'}
+    {name: 'Sign Out', link: '/'}
 ]
 
 export default function Navbar(props) {
@@ -18,7 +18,7 @@ export default function Navbar(props) {
         return pages.map(page =>
             <div className="text-lg" key={page.name}>
                 <Link href={page.link}>
-                    <div className={`${props.page == page.name ? 'text-gray-200 bg-gray-900 border-gray-600' : 'border-blue-700 text-gray-200'} rounded-lg font-bold cursor-pointer py-6 mx-2 border-b-8 px-3 hover:bg-gray-900`}>{page.name}</div>
+                    <div className={`${props.page == page.name ? 'text-gray-200 border-blue-600' : 'border-gray-800 text-gray-200'} font-bold cursor-pointer py-6 mx-2 border-b-8 px-3 hover:bg-gray-900`}>{page.name}</div>
                 </Link>
             </div>
         )
@@ -36,9 +36,9 @@ export default function Navbar(props) {
     }
     
     return (
-        <div className="flex items-center justify-between px-6 shadow-md bg-blue-700">
+        <div className="flex items-center justify-between px-6 shadow-md bg-gray-800">
             <div className="flex items-center justify-center">
-                <img className="w-14 h-14 md:ml-3" src="/favicon.ico" alt="logo"></img>
+                <img className="w-20 h-14 md:ml-3" src="/logo.png" alt="logo"></img>
                 <div className="ml-3 text-xl font-bold text-gray-200">Result evaluator</div>
             </div>
             <div className="items-center hidden md:flex">

@@ -1,0 +1,1056 @@
+{
+    "data": [
+        {
+            "code": "AB01",
+            "name": "Umudike Study Centre",
+            "email": "cnnadi@noun.edu.ng",
+            "director": "Prof. Chris Ejike Nnadi",
+            "number": "8035491622",
+            "zone": "South East",
+            "address": "National Root Crop Institute, P.M.B 7296 Umuahia, Abia State."
+        },
+        {
+            "code": "AB02",
+            "name": "NOUN Special Study Centre Nigeria Prisons Umudike",
+            "email": "umudikeprison@noun.edu.ng",
+            "director": "ACG(Rtd). Adam I. Omale",
+            "number": "8033298196",
+            "zone": "South East",
+            "address": "Umudike Study Centre"
+        },
+        {
+            "address": "National Root Crop Institute, P.M.B 7296 Umuahia, Abia State"
+        },
+        {
+            "code": "AB03",
+            "name": "Community Study Centre, Asaga Ohafia, Abia State.",
+            "email": "nkkalu@noun.edu.ng",
+            "director": "Dr. Nkata U. Kalu",
+            "number": "08038717655/07084977767",
+            "zone": "South East",
+            "address": "Plot 2/3 Prof. Kalu Ezera Road, Asaga Ohafia, Abia State."
+        },
+        {
+            "code": "AD01",
+            "name": "Yola Study Centre",
+            "email": "mtiling@noun.edu.ng",
+            "director": "Tiling Marlin Yelyel (AG)",
+            "number": "8038053242",
+            "zone": "North East",
+            "address": "Army Barracks Road, Yola, Adamawa State."
+        },
+        {
+            "code": "AD02",
+            "name": "Community Study Centre, Gulak",
+            "email": "iyamtu@noun.edu.ng",
+            "director": "Mrs. Margaret John Ywantu (Ag Director)",
+            "number": "7063234784",
+            "zone": "North East",
+            "address": "Mubi North Local Government Secretariat Mubi, Adamawa State."
+        },
+        {
+            "code": "AK01",
+            "name": "UYO Study Centre",
+            "email": "cokonkwo@noun.edu.ng",
+            "director": "Prof Charity A. Okonkwo",
+            "number": "8036668264",
+            "zone": "South South",
+            "address": "Udo-Udoma Avenue, Opposite 100 Unit Housing Estate, Beside Headquarters 2 Brigade, Nigerian Army, Uyo, Akwa Ibom State"
+        },
+        {
+            "code": "AN01",
+            "name": "Awka Study Centre",
+            "email": "sezeribe@noun.edu.ng",
+            "director": "Dr. Scholastica N. Ezeribe",
+            "number": "8033922196",
+            "zone": "South East",
+            "address": "Defunct Party Building, P.M.B 2017, Abagana, Anambra State."
+        },
+        {
+            "code": "AN02",
+            "name": "NOUN Special Study Centre Nigeria Prisons Awka",
+            "email": "akwaprison@noun.edu.ng",
+            "director": "ACG (Rtd). Adam I. Omale",
+            "number": "08033298196, 08053351282",
+            "zone": "South East",
+            "address": "Awka Study Centre"
+        },
+        {
+            "address": "Defunct Party Building, P.M.B 2017, Abagana, Anambra State"
+        },
+        {
+            "code": "AN03",
+            "name": "Community Study Centre, Isulo, Anambra State",
+            "email": "bugoala@noun.edu.ng",
+            "director": "Dr. Bibian Ugoala",
+            "number": "8034082115",
+            "zone": "South East",
+            "address": "Community Study Centre, Isulo, Anambra State."
+        },
+        {
+            "code": "BA01",
+            "name": "Community Study Centre, Azare",
+            "email": "bmshelia@noun.edu.ng",
+            "director": "Mr. Bulama Samson Mshelia (Ag. Director)",
+            "number": "7038187288",
+            "zone": "North East",
+            "address": "Azare Western Bye Pass, Off Kano Road,"
+        },
+        {
+            "address": "Azare, Bauchi State."
+        },
+        {
+            "code": "BA02",
+            "name": "Bauchi Study Centre",
+            "email": "babdullahi@noun.edu.ng",
+            "director": "Prof. Abdullahi Mohhammed Bello",
+            "number": "8060920525",
+            "zone": "North East",
+            "address": "Former NRC Building, Federal Low Cost"
+        },
+        {
+            "address": "Housing Estate, Bauchi, Bauchi State."
+        },
+        {
+            "code": "BA03",
+            "name": "Bogoro Study Centre",
+            "email": "syalams@noun.edu.ng",
+            "director": "Prof. Simon Yalams: Director",
+            "number": "903,684,542,309,094,000,000",
+            "zone": "North East",
+            "address": "Bogoro Study Centre, Along Gobiya Road,"
+        },
+        {
+            "address": "Bogoro"
+        },
+        {
+            "code": "BN01",
+            "name": "Makurdi Study Centre",
+            "email": "fokopi@noun.edu.ng",
+            "director": "Prof. Fidel Okopi",
+            "number": "8023509179",
+            "zone": "North Central",
+            "address": "Former NDE office, Opp. Mechanic"
+        },
+        {
+            "address": "Village, Kanshio, Markurdi, Benue State."
+        },
+        {
+            "code": "BN02",
+            "name": "Otukpo Study Centre",
+            "email": "eabu@noun.edu.ng",
+            "director": "Abu Elizabeth O.",
+            "number": "8036050221",
+            "zone": "North Central",
+            "address": "Rep. Community Study Centre, Otukpo"
+        },
+        {
+            "address": "59/60 Upu Road, Otukpo, Benue State."
+        },
+        {
+            "code": "BN03",
+            "name": "Ugbokolo Study Centre",
+            "email": "ragbodo@noun.edu.ng",
+            "director": "Dr. (Mrs.) Rosemary Ogbodo. Adoga",
+            "number": "8123697856",
+            "zone": "North Central",
+            "address": "Along Otukpo-Enugu Highway,"
+        },
+        {
+            "address": "Ugbokolo, Benue State."
+        },
+        {
+            "code": "BO01",
+            "name": "Maiduguri Study Centre",
+            "email": "mohyahayaj@gmail.com",
+            "director": "Dr Yahaya Mohammed",
+            "number": "7063827202",
+            "zone": "North East",
+            "address": "Baga Road, P.O. Box 548, Maiduguri- Mubi"
+        },
+        {
+            "address": "Express Way, Borno State"
+        },
+        {
+            "code": "BY01",
+            "name": "Yenagoa Study Centre",
+            "email": "mjarikre@noun.edu.ng",
+            "director": "Dr. Mathias Jarikre",
+            "number": "8034814803",
+            "zone": "South South",
+            "address": "No. 1 National Open University Nigeria, Agbura-Azikoro Road. Azikoro, Yenegoa, Bayelsa State."
+        },
+        {
+            "code": "CR01",
+            "name": "Calabar Study Centre",
+            "email": "oiwuchukwu@noun.edu.ng",
+            "director": "Prof. Onyeka Iwuchukwu",
+            "number": "7032760885",
+            "zone": "South South",
+            "address": "Opposite Zone 6 Police Hqtrs (Former Teachers Training College), Calabar, Cross River State."
+        },
+        {
+            "code": "CR02",
+            "name": "Community Study Centre, Ikom",
+            "email": "ebassey@noun.edu.ng",
+            "director": "Dr. Edwin O. Bassey",
+            "number": "8036700985",
+            "zone": "South South",
+            "address": "Along, Obudu road, Ikom"
+        },
+        {
+            "code": "DE01",
+            "name": "Asaba Study Centre",
+            "email": "cnnaka@noun.edu.ng",
+            "director": "Professor Chibuogwu V. Nnaka",
+            "number": "8037056993",
+            "zone": "South South",
+            "address": "Federal College of Education (Technical), Asaba, Delta State."
+        },
+        {
+            "code": "DE02",
+            "name": "Emevor Community Study Centre",
+            "email": "lamede@noun.edu.ng",
+            "director": "Dr. Lucky Amede",
+            "number": "09099526274, 08163319801",
+            "zone": "South South",
+            "address": "72 Emevor-Ughelli Road, Emevor, Isoko North Local Govt. Area, Delta State."
+        },
+        {
+            "code": "DE03",
+            "name": "Owhrode Community Study Centre",
+            "email": "sdedekuma@noun.edu.ng",
+            "director": "Dr. Sunday E. Dedekuma",
+            "number": "8033619623",
+            "zone": "South South",
+            "address": "Community Study Centre, Owrhode"
+        },
+        {
+            "code": "DE04",
+            "name": "Community Study Centre, Sapele, Delta State",
+            "email": "akaine@noun.edu.ng",
+            "director": "Dr. Kaine Anthony",
+            "number": "8038822372",
+            "zone": "South South",
+            "address": "Sapele, Delta State"
+        },
+        {
+            "code": "EB01",
+            "name": "Abakaliki Study Centre",
+            "email": "audu@noun.edu.ng",
+            "director": "Dr. Ama A. Udu (Ag Director)",
+            "number": "8035486420",
+            "zone": "South East",
+            "address": "Former State Secretariat, Opposite Unity Square, Amagu Street, Off Ezza Road, Abakaliki, Ebonyi State."
+        },
+        {
+            "code": "ED01",
+            "name": "Benin Study Centre",
+            "email": "oadewale@noun.edu.ng",
+            "director": "Prof. Olubiyi A. Adewale",
+            "number": "8162796978",
+            "zone": "South South",
+            "address": "Ekenwa Road, Old SDP Secretariat, Benin City, Edo State."
+        },
+        {
+            "code": "ED02",
+            "name": "Commnity Study Centre,Fugar",
+            "email": "jaliede@noun.edu.ng",
+            "director": "Dr. Jonathan E. Aliede",
+            "number": "8069395473",
+            "zone": "South South",
+            "address": "NOUN Community Study Centre, Fugar"
+        },
+        {
+            "code": "ED03",
+            "name": "Uromi Community Study Centre",
+            "email": "tangba@noun.edu.ng",
+            "director": "Dr. (Mrs) Tessy Angba",
+            "number": "7066568941",
+            "zone": "South South",
+            "address": "NOUN Community Study Centre, Uromi"
+        },
+        {
+            "code": "EK01",
+            "name": "Ado-Ekiti Study Centre",
+            "email": "amustapha@noun.edu.ng",
+            "director": "Prof. Mustapha A. Raheem",
+            "number": "7032333494",
+            "zone": "South West",
+            "address": "Beside Ekiti State Government College, Along Federal Polytechnic Road, Ado Ekiti, Ekiti State"
+        },
+        {
+            "code": "EN01",
+            "name": "NOUN Community Study Centre, National Development Centre,Orie Awgu, Enugu State. Awgu, Enugu",
+            "email": "onwachukwu@noun.edu.ng",
+            "director": "Mr. OFORBUIKE Nwachukwu (Ag Director)",
+            "number": "8037782878",
+            "zone": "South East",
+            "address": "National Youth Development Centre, Orie Awgu, Enugu State."
+        },
+        {
+            "code": "EN02",
+            "name": "Enugu Study Centre",
+            "email": "aonyia@noun.edu.ng",
+            "director": "Prof. Onyia Alexander",
+            "number": "7030729120",
+            "zone": "South East",
+            "address": "87/89 Nike-Lake Road, Enugu, Enugu State."
+        },
+        {
+            "code": "EN03",
+            "name": "NOUN Special Study Centre Nigeria Prisons Enugu Maximum Prisons",
+            "email": "enuguprisonscentre@noun.edu.ng",
+            "director": "ACG (Rtd). Adam I. Omale",
+            "number": "08033298196, 08053351282",
+            "zone": "South East",
+            "address": "Enugu Study Centre"
+        },
+        {
+            "address": "87/89 Nike-Lake Road, Enugu, Enugu State."
+        },
+        {
+            "code": "EN04",
+            "name": "OPI Community Study Center",
+            "email": "monyehalu@noun.edu.ng",
+            "director": "Dr. Maria-Theresa Onyehalu (Ag Director)",
+            "number": "07039619130, 08052339007",
+            "zone": "South East",
+            "address": "Nsukka Local Government Area, Enugu State."
+        },
+        {
+            "code": "FC01",
+            "name": "Abuja Model Study Centre",
+            "email": "sayodele@noun.edu.ng",
+            "director": "Prof. Sanni M. Ayodele",
+            "number": "08036761286, 08052000000",
+            "zone": "North Central",
+            "address": "Dutse-Alhaji, Kubwa Express Way, Abuja, FCT."
+        },
+        {
+            "code": "FC03",
+            "name": "NOUN Special Study Centre, National Union of Road Transport Workers (NURTW)",
+            "email": "padeniyi@noun.edu.ng",
+            "director": "Mrs. Patience A. Adeniyi",
+            "number": "8023124361",
+            "zone": "North Central",
+            "address": "Plot 1236, Sapele Street, Garki II, Abuja, FCT."
+        },
+        {
+            "code": "FC05",
+            "name": "Special Study Centre,for Nigerian Police Force",
+            "email": "safolabi@noun.edu.ng",
+            "director": "Dr. Samson Sunday",
+            "number": "8055109513",
+            "zone": "North Central",
+            "address": "Directorate of Police Education Complex"
+        },
+        {
+            "address": "(Beside Mopol Barracks) Suleja Express Way"
+        },
+        {
+            "address": "Dei-Dei, Abuja."
+        },
+        {
+            "code": "FC06",
+            "name": "NOUN Special Study Centre, Nigerian Security and Civil Defense Corps (NSCDC)",
+            "email": "dobieje@noun.edu.ng",
+            "director": "Prof. Doris Obieje",
+            "number": "8037019942",
+            "zone": "North Central",
+            "address": "Civil Defense Academy, Sauka, Abuja, FCT."
+        },
+        {
+            "code": "FC07",
+            "name": "NOUN Special Study Centre, Nigerian Prisons Services, Sauka",
+            "email": "prisonservicespecialstudycentre@noun.edu.ng",
+            "director": "ACG (Rtd). Adam I. Omale",
+            "number": "8033298196",
+            "zone": "North Central",
+            "address": "Spec. S/Centre, Nig. Prisons, Abuja"
+        },
+        {
+            "address": "Bill Clinton Avenue, Sauka, Abuja, FCT."
+        },
+        {
+            "code": "FC09",
+            "name": "NOUN Wuse II Study Centre, Abuja",
+            "email": "gokoli@noun.edu.ng",
+            "director": "Prof.Chidiogo G.Okoli",
+            "number": "7036640610",
+            "zone": "North Central",
+            "address": "5 Dares Salaam Off Aminu Kanu Crescent,"
+        },
+        {
+            "address": "Wuse II, Abuja, FCT."
+        },
+        {
+            "code": "FC11",
+            "name": "NOUN Special Study Centre, Kuje Prisons",
+            "email": "aomale@noun.edu.ng",
+            "director": "ACG (Rtd). Adam I. Omale",
+            "number": "08033298196, 08053351282",
+            "zone": "North Central",
+            "address": "NOUN Special Study Centre, Kuje Prisons,"
+        },
+        {
+            "address": "Kuje, Abuja, FCT."
+        },
+        {
+            "code": "GM01",
+            "name": "Gombe Study Centre",
+            "email": "abappah@noun.edu.ng",
+            "director": "Dr. Bappah Adamu (Ag. Director)",
+            "number": "8069504259",
+            "zone": "North East",
+            "address": "After All Saints College, Gombe Federal Low"
+        },
+        {
+            "address": "Cost, P.M.B 0163, Gombe, Gombe State."
+        },
+        {
+            "code": "IM01",
+            "name": "Owerri Study Centre",
+            "email": "tettu@noun.edu.ng",
+            "director": "Dr. Theresa Ettu",
+            "number": "8063812465",
+            "zone": "South East",
+            "address": "No. 63 Okigwe Road, Owerri, Imo State."
+        },
+        {
+            "code": "JG01",
+            "name": "Dutse Study Centre",
+            "email": "amusa@noun.edu.ng",
+            "director": "Dr. Aliyu Musa (Ag. Director)",
+            "number": "8062246917",
+            "zone": "North West",
+            "address": "3rd Floor Federal Government Secretariat,"
+        },
+        {
+            "address": "Kiyawa Road, Dutse, Jigawa State"
+        },
+        {
+            "code": "KB01",
+            "name": "Kebbi Study Centre",
+            "email": "musaibrahim@noun.edu.ng",
+            "director": "Dr. Musa Ibrahim (Ag. Director)",
+            "number": "8062622999",
+            "zone": "North West",
+            "address": "National Open University of Nigeria"
+        },
+        {
+            "address": "Kebbi Study Centre"
+        },
+        {
+            "address": "Emir Haruna Yahaya Road, Adjacent State Scholarship Board"
+        },
+        {
+            "address": "Birnin Kebbi, Kebbi State."
+        },
+        {
+            "code": "KD01",
+            "name": "Kaduna Study Centre",
+            "email": "aminuumar@noun.edu.ng",
+            "director": "Dr. Aminu Umar",
+            "number": "8039606787",
+            "zone": "North West",
+            "address": "Kaduna Campus (Old NETC) by Trade Fair"
+        },
+        {
+            "address": "Complex, KM 4 Zaria Road, Kaduna,"
+        },
+        {
+            "address": "Kaduna State."
+        },
+        {
+            "code": "KD02",
+            "name": "Kagoro Community Study Centre",
+            "email": "pheobeakas@yahoo.com",
+            "director": "Mrs. Phoebe C. Akaas (Ag Director)",
+            "number": "8036196458",
+            "zone": "North West",
+            "address": "Along Kagoro-Kafanchan Road, Kagoro,"
+        },
+        {
+            "address": "Kaduna State."
+        },
+        {
+            "code": "KD03",
+            "name": "NOUN Special Study Centre, Nigerian Air Force",
+            "email": "ndamundi@yahoo.com",
+            "director": "Prof. Nda Mundi",
+            "number": "807,995,714,407,061,000,000",
+            "zone": "North West",
+            "address": "325 Ground Training Group, Nigerian Air"
+        },
+        {
+            "address": "Force Base, Kaduna, Kaduna State"
+        },
+        {
+            "code": "KD04",
+            "name": "NOUN Special Study Centre Nigeria Prisons Kaduna",
+            "email": "kadunaprisonstudycentre@noun.edu.ng",
+            "director": "ACG (Rtd). Adam I. Omale",
+            "number": "08033298196, 08053351282",
+            "zone": "North West",
+            "address": "Kaduna Campus (Old NETC) by Trade Fair Complex, KM 4 Zaria Road, Kaduna, Kaduna State."
+        },
+        {
+            "code": "KG01",
+            "name": "Idah Community Study Centre",
+            "email": "eamanabo@noun.edu.ng",
+            "director": "Mr. Amanabo Emmanuel (Ag. Director)",
+            "number": "8065756063",
+            "zone": "North Central",
+            "address": "Behind Moda Motel, Idah, Kogi State."
+        },
+        {
+            "code": "KG02",
+            "name": "Community Study Centre Iyara",
+            "email": "jaina@noun.edu.ng",
+            "director": "Dr. (Mrs.) Josephine S. Aina",
+            "number": "8036093532",
+            "zone": "North Central",
+            "address": "Defunct Party Building Secretariat,"
+        },
+        {
+            "address": "Iyara-Kabba Road, Iyara, Kogi State."
+        },
+        {
+            "code": "KG03",
+            "name": "Lokoja Study Centre",
+            "email": "galhassan@noun.edu.ng",
+            "director": "Dr. Godwin A. Alhassan",
+            "number": "8036792970",
+            "zone": "North Central",
+            "address": "Defunct NRC Secretariat, Opposite Bishop"
+        },
+        {
+            "address": "Dennis College, Lokoja, Kogi State."
+        },
+        {
+            "code": "KG04",
+            "name": "Community Study Centre Ogori",
+            "email": "caturu-aghedo@noun.edu.ng",
+            "director": "Dr. ATURU-AGHEDO Caroline",
+            "number": "08033060214, 07064524610",
+            "zone": "North Central",
+            "address": "Aiyeromi Along Ogori-Ekpe Road, Before"
+        },
+        {
+            "address": "General Hospital Ogori."
+        },
+        {
+            "code": "KN01",
+            "name": "Kano Study Centre",
+            "email": "mishaq@noun.edu.ng",
+            "director": "Mudassir Ishaq (Center Rep)",
+            "number": "8033551486",
+            "zone": "North West",
+            "address": "Independence Road, Sauna-Dakata, Kano,"
+        },
+        {
+            "address": "Kano State."
+        },
+        {
+            "code": "KN02",
+            "name": "Shanono Community Study Centre, Kano State",
+            "email": "aaahmad@noun.edu.ng",
+            "director": "Dr. Ahmad Abubakar Abdullahi",
+            "number": "8032853267",
+            "zone": "North West",
+            "address": "Shanono Community Study Centre, Kano State"
+        },
+        {
+            "code": "KN03",
+            "name": "Bagwai COmmunity Study Centre",
+            "email": "mbello@noun.edu.ng",
+            "director": "Dr.Bello Mohammed Kamal-Deen",
+            "number": "8060354842",
+            "zone": "North West",
+            "address": "Bagwai COmmunity Study Centre, Kano State."
+        },
+        {
+            "code": "KN04",
+            "name": "Rimi Community Study Centre, Kano State",
+            "email": "aaahmad@noun.edu.ng",
+            "director": "Dr. Ahmad Abubakar Abdullahi",
+            "number": "8032853267",
+            "zone": "North West",
+            "address": "Rimi Community Study Centre, Kano State"
+        },
+        {
+            "code": "KN05",
+            "name": "Dawakin Tofa Community Study Centre, Kano State",
+            "email": "thalliru@noun.edu.ng",
+            "director": "Dr. Haliru Tijjani",
+            "number": "8034371016",
+            "zone": "North West",
+            "address": "Dawakin Tofa Community Study Centre, Kano State"
+        },
+        {
+            "code": "KN06",
+            "name": "Kabo Community Study Centre, Kano State",
+            "email": "aaahmad@noun.edu.ng",
+            "director": "Dr. Ahmad Abubakar Abdullahi",
+            "number": "8032853267",
+            "zone": "North West",
+            "address": "Kabo Community Study Centre, Kano State"
+        },
+        {
+            "code": "KN07",
+            "name": "Tofa Study Centre, Kano State",
+            "email": "mbello@noun.edu.ng",
+            "director": "Dr. Ahmad Abubakar Abdullahi",
+            "number": "8032853267",
+            "zone": "North West",
+            "address": "Tofa Study Centre, Kano State"
+        },
+        {
+            "code": "KN08",
+            "name": "Bichi Community Study Centre",
+            "email": "Mbello@noun.edu.ng",
+            "director": "Dr. Bello Mohammed Kamal-Deen",
+            "number": "8060354842",
+            "zone": "North West",
+            "address": "Bichi Community, Kano State."
+        },
+        {
+            "code": "KN09",
+            "name": "Danbata Community Study Centre, Kano State",
+            "email": "thalliru@noun.edu.ng",
+            "director": "Dr. Haliru Tijjani",
+            "number": "8034371016",
+            "zone": "North West",
+            "address": "Danbata Community Study Centre, Kano State"
+        },
+        {
+            "code": "KN10",
+            "name": "Gwarzo Community Study Centre, Kano State",
+            "email": "aaahmad@noun.edu.ng",
+            "director": "Dr. Ahmad Abubakar Abdullahi",
+            "number": "8032853267",
+            "zone": "North West",
+            "address": "Gwarzo Community Study Centre, Kano State"
+        },
+        {
+            "code": "KN11",
+            "name": "Kunchi Community Study Centre, Kano State",
+            "email": "thalliru@noun.edu.ng",
+            "director": "Dr. Haliru Tijjani",
+            "number": "8034371016",
+            "zone": "North West",
+            "address": "Kunchi Community Study Centre, Kano State"
+        },
+        {
+            "code": "KN12",
+            "name": "Makoda Community Study Centre, Kano State",
+            "email": "thalliru@noun.edu.ng",
+            "director": "Dr. Haliru Tijjani",
+            "number": "8034371016",
+            "zone": "North West",
+            "address": "Makoda Community Study Centre, Kano State"
+        },
+        {
+            "code": "KN13",
+            "name": "Gabasawa Community Study Centre",
+            "email": "gabasawacommunity@noun.edu.ng",
+            "director": "Dr. Ali Alasan",
+            "number": "9099601255",
+            "zone": "North West",
+            "address": "Gabasawa Community, Kano State."
+        },
+        {
+            "code": "KN14",
+            "name": "Study Centre, Tsanyawa, Kano",
+            "email": "mbello@noun.edu.ng",
+            "director": "Dr.Bello Mohammed Kamal-Deen",
+            "number": "8060354842",
+            "zone": "North West",
+            "address": "Study Centre, Tsanyawa, Kano"
+        },
+        {
+            "code": "KN15",
+            "name": "Study Centre, Dawakin Kudu, Kano State",
+            "email": "dawakinkuducommunitycentre@noun.edu.ng",
+            "director": "Dr. Ali Alasan",
+            "number": "9099601255",
+            "zone": "North West",
+            "address": "Study Centre, Dawakin Kudu, Kano State"
+        },
+        {
+            "code": "KN16",
+            "name": "Fagge Community Study Centre",
+            "email": "Faggecommunitycentre@noun.edu.ng",
+            "director": "Dr. Ali Alasan",
+            "number": "9099601255",
+            "zone": "North West",
+            "address": "Fagge Community, Kano State."
+        },
+        {
+            "code": "KN17",
+            "name": "Kwachiri Community Study Centre",
+            "email": "kwachiri@noun.edu.ng",
+            "director": "Dr. Ali Alasan",
+            "number": "9099601255",
+            "zone": "North West",
+            "address": "Kwachiri Community, Kano State."
+        },
+        {
+            "code": "KT02",
+            "name": "Katsina Study Centre",
+            "email": "biro@noun.edu.ng",
+            "director": "Dr. Babangida Iro",
+            "number": "8033540469",
+            "zone": "North West",
+            "address": "After Katsina State House of Assembly, Kaita"
+        },
+        {
+            "address": "Road, Katsina State"
+        },
+        {
+            "code": "KT03",
+            "name": "Masari Community Study Centre",
+            "email": "hyakubu-lame@noun.edu.ng",
+            "director": "Dr. Hannatu Isa Dodo",
+            "number": "8100104741",
+            "zone": "North West",
+            "address": "Community Study Centre, Masari, Kafur, Katsina"
+        },
+        {
+            "address": "State"
+        },
+        {
+            "code": "KW01",
+            "name": "Ilorin Study Centre",
+            "email": "kbello@noun.edu.ng",
+            "director": "Prof. Bello Kamaldeen",
+            "number": "8064417913",
+            "zone": "North Central",
+            "address": "Old Party Building, Kulende Housing Estate,"
+        },
+        {
+            "address": "Ilorin, Kwara State."
+        },
+        {
+            "code": "KW02",
+            "name": "NOUN Special Study Centre, Nigerian Army, Sobi",
+            "email": "roloyede@noun.edu.ng",
+            "director": "Dr Oloyede Raheemat Ag Study center",
+            "number": "7035251514",
+            "zone": "North Central",
+            "address": "P.M.B 1514 (Army School of Education) Sobi Cantonment, Ilorin, Kwara State."
+        },
+        {
+            "code": "KW04",
+            "name": "Community Study Centre Offa",
+            "email": "agata@noun.edu.ng",
+            "director": "Dr. Abdullahi Mas'ud Gata",
+            "number": "8035222857",
+            "zone": "North Central",
+            "address": "Igosun Road, Offa, Kwara State."
+        },
+        {
+            "code": "LA01",
+            "name": "Lagos Study Centre",
+            "email": "aakujobi@noun.edu.ng",
+            "director": "Dr. Alero T. Akujobi",
+            "number": "8037779342",
+            "zone": "South West",
+            "address": "Victoria Island, Lagos State."
+        },
+        {
+            "code": "LA02",
+            "name": "Mccarthy Study Centre",
+            "email": "jogidan@noun.edu.ng",
+            "director": "Prof. Rotimi Ogidan",
+            "number": "8024957468",
+            "zone": "South West",
+            "address": "No. 38/40 McCarthy, Off Obalende Road, Opp. Ghana"
+        },
+        {
+            "address": "High Commission, Victoria Island,"
+        },
+        {
+            "address": "Lagos State."
+        },
+        {
+            "code": "LA03",
+            "name": "Mushin Study Centre",
+            "email": "yogunlela@noun.edu.ng",
+            "director": "Dr. (Mrs) Ogunlela",
+            "number": "8034518814",
+            "zone": "South West",
+            "address": "19 Fatai Atere Way, Mushin, Lagos State"
+        },
+        {
+            "code": "LA04",
+            "name": "NOUN Special Study Centre,Nigerian NAVY Apapa",
+            "email": "oinua@noun.edu.ng",
+            "director": "Dr. (Mrs) Ofe I. Inua",
+            "number": "8169059934",
+            "zone": "South West",
+            "address": "Nigerian Navy NNS QUORRA, Apapa, Lagos."
+        },
+        {
+            "code": "LA07",
+            "name": "NOUN Special Study Centre Nigeria Prisons KiriKiri Maximum Prisons (Male & Female)",
+            "email": "kirikiricentre@noun.edu.ng",
+            "director": "ACG (Rtd). Adam I. Omale",
+            "number": "08033298196, 08053351282",
+            "zone": "South West",
+            "address": "14/16 Ahmadu Bello Way, Victoria Island,"
+        },
+        {
+            "address": "Lagos State."
+        },
+        {
+            "code": "NG01",
+            "name": "Minna Study Centre",
+            "email": "mgana@noun.edu.ng",
+            "director": "Dr. Mathew A. Gana",
+            "number": "8033808321",
+            "zone": "North Central",
+            "address": "NRC Secretariat, Opp. Mariam Babangida"
+        },
+        {
+            "address": "Girls Science College, Bosso, Minna,"
+        },
+        {
+            "address": "Niger State."
+        },
+        {
+            "code": "NS01",
+            "name": "Lafia Study Centre",
+            "email": "jamesalachi@yahoo.com",
+            "director": "Prof. ALACHI A. James",
+            "number": "8035936950",
+            "zone": "North Central",
+            "address": "Bukan-Sidi, Jos Road, Lafia, Nasarawa State."
+        },
+        {
+            "code": "NS02",
+            "name": "NOUN Special Study Centre, Keffi Prisons",
+            "email": "keffiprison@noun.edu.ng",
+            "director": "ACG (Rtd). Adam I. Omale",
+            "number": "08033298196, 08053351282",
+            "zone": "North Central",
+            "address": "Lafia Study Centre"
+        },
+        {
+            "address": "Bukan-Sidi, Jos Road, Lafia, Nasarawa State"
+        },
+        {
+            "code": "NS03",
+            "name": "NOUN Special Study Centre Nigeria Prisons Lafia",
+            "email": "lafiaprisonstudycentre@noun.edu.ng",
+            "director": "ACG (Rtd). Adam I. Omale",
+            "number": "08033298196, 08053351282",
+            "zone": "North Central",
+            "address": "Lafia Study Centre"
+        },
+        {
+            "address": "Bukan-Sidi, Jos Road, Lafia, Nasarawa State"
+        },
+        {
+            "code": "OG01",
+            "name": "Abeokuta Study Centre",
+            "email": "oadenuga@noun.edu.ng",
+            "director": "Dr. Oba-Adenuga Olusegun A.",
+            "number": "8033879789",
+            "zone": "South West",
+            "address": "Opposite NNPC Mega Station, Ogun State."
+        },
+        {
+            "code": "OG02",
+            "name": "Community Study Centre Awa-Ijebu",
+            "email": "tishola@noun.edu.ng",
+            "director": "Dr. Timothy Ishola",
+            "zone": "South West",
+            "address": "Ijebu Awa, East Local Government Area,"
+        },
+        {
+            "address": "Ogun State."
+        },
+        {
+            "code": "OG03",
+            "name": "NOUN Special Study Centre Nigeria Prisons Ilaro",
+            "email": "ilaroprison@noun.edu.ng",
+            "director": "ACG (Rtd). Adam I. Omale",
+            "number": "8033298196",
+            "zone": "South West",
+            "address": "Abeokuta Study Centre"
+        },
+        {
+            "address": "Opposite NNPC Mega Station, Ogun State."
+        },
+        {
+            "code": "ON01",
+            "name": "Akure Study Centre",
+            "email": "sogundiran@noun.edu.ng",
+            "director": "Prof. Ogunwale Ogundiran (Ag)",
+            "number": "08055200492, 08032327228",
+            "zone": "South West",
+            "address": "Old NRC Building, Idanre Road, Ondo State."
+        },
+        {
+            "code": "ON02",
+            "name": "Community Study Centre, Oka-Akoko, Ondo State",
+            "email": "ayau@nou.edu.ng",
+            "director": "Mr. Abdullahi Musa Yau",
+            "number": "8066506698",
+            "zone": "South West",
+            "address": "Community Study Centre, Oka-Akoko, Ondo State."
+        },
+        {
+            "code": "ON03",
+            "name": "Community Study Centre Isua-Akoko, Ondo State.",
+            "email": "Isua-akokocommunitycentre@noun.edu.ng",
+            "director": "Mr.Abdullahi Musa Yau",
+            "number": "8067674555",
+            "zone": "South West",
+            "address": "Isua-Akoko, Ondo State."
+        },
+        {
+            "code": "OS01",
+            "name": "Iwo Study Centre",
+            "email": "ooyebode@noun.edu.ng",
+            "director": "Dr. Olabimiji Oyebode",
+            "number": "8033283013",
+            "zone": "South West",
+            "address": "Opposite OSADEP, Oyo Road, Iwo,"
+        },
+        {
+            "address": "Osun State"
+        },
+        {
+            "code": "OS02",
+            "name": "Osogbo Study Centre",
+            "email": "bogunleye@noun.edu.ng",
+            "director": "Prof. Oludare Bamikole Ogunleye",
+            "number": "8034072263",
+            "zone": "South West",
+            "address": "Beside St. Charles Okedo, former SDP Building, Ilesha Road, Oshogbo,"
+        },
+        {
+            "address": "Osun State"
+        },
+        {
+            "code": "OS03",
+            "name": "NOUN Community Study Centre Otan-Ayegbaju",
+            "email": "loveagunbiade@yahoo.com",
+            "director": "Mr. Abidemi F. Agunbiade",
+            "number": "08023541556, 07032693482",
+            "zone": "South West",
+            "address": "Community Study Centre, Otan-Aiyegbaju"
+        },
+        {
+            "code": "OY01",
+            "name": "Ibadan Study Centre",
+            "email": "jsokefun@noun.edu.ng",
+            "director": "Prof. Justus A. Shokefun",
+            "number": "8037707047",
+            "zone": "South West",
+            "address": "Former Party Secretariat, Faith Clinic Road, Ijokodo Junction, Sango-Eleyele, P.M.B 5061, Ibadan, Oyo State."
+        },
+        {
+            "code": "OY02",
+            "name": "Kisi Community Study Centre",
+            "email": "oawonuga@noun.edu.ng",
+            "director": "Dr. Olukayode O. Awonuga",
+            "number": "8050274545",
+            "zone": "South West",
+            "address": "Kisi Community Study Centre, Oyo State."
+        },
+        {
+            "code": "PL01",
+            "name": "Jos Study Centre",
+            "email": "ptachin@noun.edu.ng",
+            "director": "Dr. Philip S. Tachin",
+            "number": "09022200559, 08065650774",
+            "zone": "North Central",
+            "address": "Lomay International Hotel Road,"
+        },
+        {
+            "address": "P.M.B.0983, Bukuru Sabon Barki,"
+        },
+        {
+            "address": "Jos, Plateau State."
+        },
+        {
+            "code": "RV01",
+            "name": "NOUN Special Study Centre, Nigeria Prisons Services, Port Harcourt",
+            "email": "portharcourtprison@noun.edu.ng",
+            "director": "ACG (Rtd). Adam I. Omale",
+            "number": "08033298196, 08053351282",
+            "zone": "South South",
+            "address": "Port Harcourt Study Centre"
+        },
+        {
+            "address": "Obiri-Ikwere Junction, NTA/Choba Road, Ozuoba, Rivers State"
+        },
+        {
+            "code": "RV02",
+            "name": "Port Harcourt Study Centre",
+            "email": "nnchukwuma@noun.edu.ng",
+            "director": "Dr. Nnenna Ńancy Chukwuma",
+            "number": "8033102878",
+            "zone": "South South",
+            "address": "Obiri-Ikwere Junction, NTA/Choba Road, Ozuoba, Rivers State."
+        },
+        {
+            "code": "S001",
+            "name": "Sokoto Study Centre",
+            "email": "aikpe@noun.edu.ng",
+            "director": "Dr. Adakole Ikpe (Ag. Director)",
+            "number": "8033232155",
+            "zone": "North West",
+            "address": "Shehu Shagari College of Education, Sokoto, Sokoto State."
+        },
+        {
+            "code": "TR01",
+            "name": "Jalingo Study Centre",
+            "email": "bwaziri@noun.edu.ng",
+            "director": "Dr Bala K. Waziri (Ag Center)",
+            "number": "8027470001",
+            "zone": "North East",
+            "address": "Education Resource Centre, Former T/C Staff Quarters Jalingo, Taraba State"
+        },
+        {
+            "code": "TR02",
+            "name": "Wukari Study Centre",
+            "email": "zwada@noun.edu.ng",
+            "director": "Dr. Zira B. Wada (Ag. Director)",
+            "number": "8142739421",
+            "zone": "North East",
+            "address": "Former Local Government Lodge,"
+        },
+        {
+            "address": "Tsokundi Road, Wukari, Taraba State."
+        },
+        {
+            "code": "YB01",
+            "name": "Damaturu Study Centre",
+            "email": "mmachina@noun.edu.ng",
+            "director": "Dr. Machina MUHAMMED A.",
+            "number": "8036148866",
+            "zone": "North East",
+            "address": "Former Amusement Park, Maiduguri Road, Damaturu,"
+        },
+        {
+            "address": "Yobe State."
+        },
+        {
+            "code": "ZM01",
+            "name": "Gusau Study Centre",
+            "email": "oatuma@noun.edu.ng",
+            "director": "Dr. Atuma Okpara (Director)",
+            "number": "8034337715",
+            "zone": "North West",
+            "address": "A4, Commissioner's Quarters, Bye-Pass,"
+        },
+        {
+            "address": "Gusau, Zamfara State."
+        }
+    ]
+}

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import {useState} from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import Form from 'react-bootstrap/Form'
 import Footer from '../components/Footer'
 import Modal from 'react-bootstrap/Modal'
@@ -9,6 +10,7 @@ import {IconContext} from 'react-icons'
 import {FaGoogle, FaFacebookF} from 'react-icons/fa'
 
 export default function Home() {
+  const router = useRouter()
   const [showModal, setShowModal] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -54,7 +56,7 @@ export default function Home() {
 
               <div className="flex items-end justify-end mt-5 pr-4">
                 <p className="text-gray-400 text-lg underline mr-4 hover:text-gray-800 cursor-pointer">Don't have an account? Register</p>
-                <Button varient="primary" type="submit">Login</Button>
+                <Button onClick={() => router.push('/dashboard')} varient="primary" type="submit">Login</Button>
               </div>
             </Form>
 
@@ -97,7 +99,7 @@ export default function Home() {
 
             </div>
             <div className="text-xl mr-5 ml-3">
-              <Link href="/dashboard">
+              <Link href="/register">
                 <p className="cursor-pointer font-bold text-blue-800">Register</p>
               </Link>
             </div>

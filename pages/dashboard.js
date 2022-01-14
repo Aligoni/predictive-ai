@@ -500,7 +500,7 @@ export default function Dashboard() {
     return (
         <div className="min-h-screen bg-blue-100">
             <Navbar page='Dashboard'/>
-            <div className="p-6 md:px-20 text-xl md:text-4xl">Hi, Muhammad</div>
+            <div className="p-6 md:px-20 text-xl md:text-2xl">Welcome, Muhammad</div>
 
             <div className="py-4 text-center text-bold text-2xl md:text-4xl bg-white shadow-lg">History</div>
             {evaluated.length > 0 ?

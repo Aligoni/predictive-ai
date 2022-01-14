@@ -1,0 +1,559 @@
+{
+    "data": [
+        {
+            "code": "7406",
+            "program": "PhD Management Information System (MIS)",
+            "faculty": "ACETEL Programmes"
+        },
+        {
+            "code": "7405",
+            "program": "PhD Cyber Security (CS)",
+            "faculty": "ACETEL Programmes"
+        },
+        {
+            "code": "7404",
+            "program": "PhD Artificial Intelligence (AI)",
+            "faculty": "ACETEL Programmes"
+        },
+        {
+            "code": "7403",
+            "program": "M.Sc. Management Information System (MIS)",
+            "faculty": "ACETEL Programmes"
+        },
+        {
+            "code": "7402",
+            "program": "M.Sc. Cyber Security (CS)",
+            "faculty": "ACETEL Programmes"
+        },
+        {
+            "code": "7401",
+            "program": "M.Sc. Artificial Intelligence (AI)",
+            "faculty": "ACETEL Programmes"
+        },
+        {
+            "code": "7208",
+            "program": "B.Sc Agricultural Extension and Management",
+            "faculty": "Agricultural Sciences"
+        },
+        {
+            "code": "7202",
+            "program": "B. Agric. (Agricultural Extension and Rural Development Option)",
+            "faculty": "Agricultural Sciences"
+        },
+        {
+            "code": "7206",
+            "program": "B. Agric. (Crop Production and Protection Sciences Option)",
+            "faculty": "Agricultural Sciences"
+        },
+        {
+            "code": "7205",
+            "program": "B. Agric. (Soil and Land Resources Management Option)",
+            "faculty": "Agricultural Sciences"
+        },
+        {
+            "code": "7201",
+            "program": "B. Agric. (Agricultural Economics and Agro Business Option)",
+            "faculty": "Agricultural Sciences"
+        },
+        {
+            "code": "7301",
+            "program": "PGD Agricultural Extension and Management",
+            "faculty": "Agricultural Sciences"
+        },
+        {
+            "code": "7204",
+            "program": "B. Agric. (Aquaculture and Fisheries Management Option)",
+            "faculty": "Agricultural Sciences"
+        },
+        {
+            "code": "7203",
+            "program": "B. Agric. (Animal Science Option)",
+            "faculty": "Agricultural Sciences"
+        },
+        {
+            "code": "7207",
+            "program": "B.Sc. Hotel and Catering Management",
+            "faculty": "Agricultural Sciences"
+        },
+        {
+            "code": "2406",
+            "program": "M.A. Islamic Studies",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2405",
+            "program": "M.A. English",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2016",
+            "program": "B.A. Philosophy",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2015",
+            "program": "B.A. Yoruba",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2014",
+            "program": "B.A. Hausa",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2210",
+            "program": "B.A. Igbo",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2203",
+            "program": "B.A. Arabic Language and Literature",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2403",
+            "program": "M.A Christian Religious Studies",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2502",
+            "program": "Ph.D Christian Religious Studies",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2305",
+            "program": "PGD. Christian Religious Studies",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2208",
+            "program": "B.A. Islamic Studies",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2207",
+            "program": "B.A. Christian Religious Studies",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2206",
+            "program": "B.A. French",
+            "faculty": "Arts"
+        },
+        {
+            "code": "2205",
+            "program": "B.A. English",
+            "faculty": "Arts"
+        },
+        {
+            "code": "Access and GS",
+            "program": "Access and General Studies",
+            "faculty": "Centre for Entrepreneurship and General Studies (CE&GS)"
+        },
+        {
+            "code": "4215",
+            "program": "B.Sc. (Ed) Human Kinetics",
+            "faculty": "Education"
+        },
+        {
+            "code": "4214",
+            "program": "BLIS - Library and Information Science",
+            "faculty": "Education"
+        },
+        {
+            "code": "4213",
+            "program": "B.Sc.(Ed) Health Education",
+            "faculty": "Education"
+        },
+        {
+            "code": "4404",
+            "program": "M.Ed. Guidance and Counselling",
+            "faculty": "Education"
+        },
+        {
+            "code": "4301",
+            "program": "Postgraduate Diploma in Education (PGDE)",
+            "faculty": "Education"
+        },
+        {
+            "code": "4504",
+            "program": "Ph.D Mathematical Education",
+            "faculty": "Education"
+        },
+        {
+            "code": "4503",
+            "program": "Ph.D Educational Technology",
+            "faculty": "Education"
+        },
+        {
+            "code": "4502",
+            "program": "Ph.D Science Education",
+            "faculty": "Education"
+        },
+        {
+            "code": "4501",
+            "program": "Ph.D Educational Administration and Planning",
+            "faculty": "Education"
+        },
+        {
+            "code": "4403",
+            "program": "M.Ed. Educational Technology",
+            "faculty": "Education"
+        },
+        {
+            "code": "4402",
+            "program": "M.Ed. Science Education",
+            "faculty": "Education"
+        },
+        {
+            "code": "4401",
+            "program": "M.Ed. Educational Administration and Planning",
+            "faculty": "Education"
+        },
+        {
+            "code": "4212",
+            "program": "B.Sc.(Ed) Business Education",
+            "faculty": "Education"
+        },
+        {
+            "code": "4211",
+            "program": "B.A.(Ed) Primary Education",
+            "faculty": "Education"
+        },
+        {
+            "code": "4210",
+            "program": "B.A.(Ed) French",
+            "faculty": "Education"
+        },
+        {
+            "code": "4209",
+            "program": "B.A.(Ed) English",
+            "faculty": "Education"
+        },
+        {
+            "code": "4208",
+            "program": "B.A.(Ed) Early Childhood Education",
+            "faculty": "Education"
+        },
+        {
+            "code": "4207",
+            "program": "B.Sc.(Ed) Physics",
+            "faculty": "Education"
+        },
+        {
+            "code": "4206",
+            "program": "B.Sc.(Ed) Mathematics",
+            "faculty": "Education"
+        },
+        {
+            "code": "4205",
+            "program": "B.Sc.(Ed) Computer Science",
+            "faculty": "Education"
+        },
+        {
+            "code": "4204",
+            "program": "B.Sc.(Ed) Integrated Science",
+            "faculty": "Education"
+        },
+        {
+            "code": "4203",
+            "program": "B.Sc.(Ed) Chemistry",
+            "faculty": "Education"
+        },
+        {
+            "code": "4202",
+            "program": "B.Sc.(Ed) Biology",
+            "faculty": "Education"
+        },
+        {
+            "code": "4201",
+            "program": "B.Sc.(Ed) Agricultural Science",
+            "faculty": "Education"
+        },
+        {
+            "code": "8306",
+            "program": "M.Sc Public Health",
+            "faculty": "Health Sciences"
+        },
+        {
+            "code": "8302",
+            "program": "B.Sc. Environmental Health Science",
+            "faculty": "Health Sciences"
+        },
+        {
+            "code": "5206",
+            "program": "Bachelor of Nursing Science (BNSc)_Old",
+            "faculty": "Health Sciences"
+        },
+        {
+            "code": "8301",
+            "program": "Postgraduate Diploma in (PGD) HIV/AIDS Education and Management",
+            "faculty": "Health Sciences"
+        },
+        {
+            "code": "8201",
+            "program": "B.Sc Public Health",
+            "faculty": "Health Sciences"
+        },
+        {
+            "code": "8204",
+            "program": "(BNSc) Bachelor of Nursing Science",
+            "faculty": "Health Sciences"
+        },
+        {
+            "code": "6201",
+            "program": "LLB Law",
+            "faculty": "Law"
+        },
+        {
+            "code": "3211",
+            "program": "B.Sc. Transport Management",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3414",
+            "program": "M.Sc Entrepreneurship",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3312",
+            "program": "PGD Entrepreneurship",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "8304",
+            "program": "Ph.D Business Administration",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "8303",
+            "program": "Ph.D Public Administration",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3209",
+            "program": "B.Sc Banking and Finance",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3208",
+            "program": "B.Sc Marketing",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3207",
+            "program": "BSc Public Administration",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3210",
+            "program": "B.Sc Business Administration",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3415",
+            "program": "MSc Public Administration",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3416",
+            "program": "MSc Business Administration",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3309",
+            "program": "PGD Financial Management",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3313",
+            "program": "PGD Business Administration",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3311",
+            "program": "PGD Public Administration",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3205",
+            "program": "B.Sc Accounting",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3204",
+            "program": "B.Sc. Entrepreneurship",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3411",
+            "program": "Master of Public Administration (MPA)",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3413",
+            "program": "Master of Business Administration (MBA)",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "3201",
+            "program": "B.Sc. Cooperative and Rural Development",
+            "faculty": "Management Sciences"
+        },
+        {
+            "code": "5402",
+            "program": "Ph.D Information Technology",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "5204",
+            "program": "B.Sc. Data Management",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "5214",
+            "program": "B.Sc Physics",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "5213",
+            "program": "B.Sc Biology",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "5212",
+            "program": "B.Sc Chemistry",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "5401",
+            "program": "M.Sc Information Technology (Internet Options)",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "5305",
+            "program": "PGD. Information Technology",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "5209",
+            "program": "B.Sc. Mathematics/Computer Science",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "5208",
+            "program": "B.Sc. Mathematics",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "5205",
+            "program": "B.Sc. Environmental Management and Toxicology",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "5203",
+            "program": "B.Sc. Computer Science",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "5202",
+            "program": "B.Sc. Information Technology",
+            "faculty": "Sciences"
+        },
+        {
+            "code": "2217",
+            "program": "B.Sc. Development Studies",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2216",
+            "program": "B.Sc Broadcasting",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2214",
+            "program": "B.Sc Film Production",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2504",
+            "program": "Ph.D Peace Studies and Conflict resolution",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2306",
+            "program": "PGD Economics",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2501",
+            "program": "Ph.D Mass Communication",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2404",
+            "program": "M.Sc. Criminology and Security Studies",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2213",
+            "program": "B.Sc. International and Diplomatic Studies",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2302",
+            "program": "PGD Mass Communication",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2209",
+            "program": "B.Sc. Tourism Studies",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2212",
+            "program": "B.Sc Economics",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2211",
+            "program": "B.Sc. Political Science",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2402",
+            "program": "M.Sc. Peace Studies and Conflict Resolution",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2401",
+            "program": "M.Sc. Mass Communication",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2303",
+            "program": "PGD. Peace Studies and Conflict Resolution",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2301",
+            "program": "PGD. Criminology and Security Studies",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2204",
+            "program": "B.Sc. Mass Communication",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2202",
+            "program": "B.Sc. Peace Studies and Conflict Resolution",
+            "faculty": "Social Sciences"
+        },
+        {
+            "code": "2201",
+            "program": "B.Sc. Criminology and Security Studies",
+            "faculty": "Social Sciences"
+        }
+    ]
+}

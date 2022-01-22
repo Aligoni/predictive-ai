@@ -12,6 +12,7 @@ import { FaGoogle, FaFacebookF } from 'react-icons/fa'
 
 export default function Register() {
     const router = useRouter()
+    const [programsList, setProgramsList] = useState([])
 
     useEffect(() => {
         console.log(faculties)
@@ -20,6 +21,16 @@ export default function Register() {
     const submitDocument = e => {
         e.preventDefault()
         e.stopPropagation()
+    }
+
+    const changeFaculty = (value) => {
+        let found = faculties.findIndex(item => item.faculty == value)
+        if (found == -1) {
+            setProgramsList([])
+        } else {
+            setProgramsList(faculties[found].programs)
+            console.log(faculties[found].programs)
+        }
     }
 
     return (
@@ -41,58 +52,62 @@ export default function Register() {
                         className="px-4"
                     >
                         <div className="flex items-center justify-center">
-                            <Form.Group className="md:flex-1 px-4 text-sm" controlId="fname">
+                            <Form.Group className="md:flex-1 px-4 text-md" controlId="fname">
                                 <Form.Label>First Name</Form.Label>
-                                <Form.Control className="text-xs" required type="text" placeholder="John" />
+                                <Form.Control className="text-sm" required type="text" placeholder="John" />
                             </Form.Group>
 
-                            <Form.Group className="md:flex-1 px-4 text-sm" controlId="lname">
+                            <Form.Group className="md:flex-1 px-4 text-md" controlId="lname">
                                 <Form.Label>Last Name</Form.Label>
-                                <Form.Control className="text-xs" required type="text" placeholder="Doe" />
+                                <Form.Control className="text-sm" required type="text" placeholder="Doe" />
                             </Form.Group>
                         </div>
 
                         <div className="flex items-center justify-center mt-4">
 
-                            <Form.Group className="md:flex-1 px-4 text-sm " controlId="email">
+                            <Form.Group className="md:flex-1 px-4 text-md " controlId="email">
                                 <Form.Label>Email</Form.Label>
-                                <Form.Control className="text-xs" required type="email" placeholder="example@gmail.com" />
+                                <Form.Control className="text-sm" required type="email" placeholder="example@gmail.com" />
                             </Form.Group>
 
-                            <Form.Group className="md:flex-1 px-4 text-sm" controlId="number">
+                            <Form.Group className="md:flex-1 px-4 text-md" controlId="number">
                                 <Form.Label>Phone Number</Form.Label>
-                                <Form.Control className="text-xs" required type="text" placeholder="+234 00000 0000" />
+                                <Form.Control className="text-sm" required type="text" placeholder="+234 00000 0000" />
                             </Form.Group>
                         </div>
 
                         <div className="flex items-center justify-center">
-                            <Form.Group className="md:flex-1 px-4 mt-4 text-sm" controlId="studyCenter">
+                            <Form.Group className="md:flex-1 px-4 mt-4 text-md" controlId="studyCenter">
                                 <Form.Label>Study Center</Form.Label>
-                                <Form.Select className="text-xs">
+                                <Form.Select className="text-sm">
+
                                     <option>Select Study Center</option>
-                                    {studyCenters.map(item =>
-                                        <option value={item.code}>{item.code + ' ' + item.name}</option>
+                                    {studyCenters.map((item, i) =>
+                                        <option key={i} value={item.code}>{item.code + ' ' + item.name}</option>
                                     )}
                                 </Form.Select>
                             </Form.Group>
                         </div>
 
-                        <div className="flex items-center justify-center" controlId="faculty">
-                            <Form.Group className="md:flex-1 px-4 mt-4 text-sm">
+                        <div className="flex items-center justify-center">
+                            <Form.Group className="md:flex-1 px-4 mt-4 text-md" controlId="faculty">
                                 <Form.Label>Faculty of Choice</Form.Label>
-                                <Form.Select className="text-xs">
+                                <Form.Select 
+                                    className="text-sm"
+                                    onChange={e => changeFaculty(e.target.value)}
+                                >
                                     <option>Select Faculty</option>
-                                    {faculties.map(item =>
-                                        <option value={item}>{item}</option>
+                                    {faculties.map((item, i) =>
+                                        <option key={i} value={item.faculty}>{item.faculty}</option>
                                     )}
                                 </Form.Select>
                             </Form.Group>
-                            <Form.Group className="md:flex-1 px-4 mt-4 text-sm" controlId="program">
+                            <Form.Group className="md:flex-1 px-4 mt-4 text-md" controlId="program">
                                 <Form.Label>Program of Choice</Form.Label>
-                                <Form.Select className="text-xs">
+                                <Form.Select className="text-sm">
                                     <option>Select Program</option>
-                                    {programs.map(item =>
-                                        <option value={item.code}>{item.program}</option>
+                                    {programsList.map((item, i) =>
+                                        <option key={i} value={item.code}>{item.name}</option>
                                     )}
                                 </Form.Select>
                             </Form.Group>
@@ -100,14 +115,14 @@ export default function Register() {
 
                         <div className="flex items-center justify-center">
 
-                            <Form.Group className="md:flex-1 px-4 mt-5 text-sm " controlId="password">
+                            <Form.Group className="md:flex-1 px-4 mt-5 text-md " controlId="password">
                                 <Form.Label>Password</Form.Label>
-                                <Form.Control className="text-xs" required type="password" placeholder="Password" />
+                                <Form.Control className="text-sm" required type="password" placeholder="Password" />
                             </Form.Group>
 
-                            <Form.Group className="md:flex-1 px-4 mt-5 text-sm " controlId="confirm">
+                            <Form.Group className="md:flex-1 px-4 mt-5 text-md " controlId="confirm">
                                 <Form.Label>Confirm Password</Form.Label>
-                                <Form.Control className="text-xs" required type="password" placeholder="Confirm Password" />
+                                <Form.Control className="text-sm" required type="password" placeholder="Confirm Password" />
                             </Form.Group>
                         </div>
                         <div className="flex items-end justify-between mt-5 pr-4">

@@ -4,8 +4,22 @@ let old = programs;
 
 let faculties = []
 old.data.forEach((data, i) => {
-    if (!faculties.find(item => item == data.faculty))
-        faculties.push(data.faculty)
+    let found = faculties.findIndex(item => item.faculty == data.faculty)
+    if (found == -1) {
+        // faculties.push(data.faculty)
+        faculties.push({
+            faculty: data.faculty,
+            programs: [{
+                code: data.code,
+                name: data.program
+            }]
+        })
+    } else {
+        faculties[found].programs.push({
+            code: data.code,
+            name: data.program
+        })
+    }
 })
 
 // old.data.forEach((data, i) => {

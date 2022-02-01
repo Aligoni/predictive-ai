@@ -9,18 +9,72 @@ import studyCenters from '../services/studyCenters'
 import Button from 'react-bootstrap/Button'
 import { IconContext } from 'react-icons'
 import { FaGoogle, FaFacebookF } from 'react-icons/fa'
+import { SERVER } from '../services/api'
+import { ToastContainer, toast } from 'react-toastify';
+import Spinner from 'react-bootstrap/Spinner'
+import axios from 'axios'
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Register() {
     const router = useRouter()
+    const [loading, setLoading] = useState(false)
     const [programsList, setProgramsList] = useState([])
 
     useEffect(() => {
-        console.log(faculties)
+        // console.log(faculties)
     }, [])
 
     const submitDocument = e => {
         e.preventDefault()
         e.stopPropagation()
+
+        const form = e.currentTarget
+        if (!form.faculty.value || !form.program.value || !form.studyCenter.value) {
+            toast.error('Please provide all necessary information')
+            return
+        }
+
+        if (form.password.value.length < 6) {
+            toast.error('Password must be greater than length of 6')
+            return
+        }
+
+        if (form.password.value != form.confirm.value) {
+            toast.error('Passwords do not match')
+            return
+        }
+        
+        setLoading(true)
+        axios.post(`${SERVER}/users`, {
+            fname: form.fname.value,
+            lname: form.lname.value,
+            email: form.email.value,
+            number: form.number.value,
+            studyCenter: form.studyCenter.value,
+            faculty: form.faculty.value,
+            program: form.program.value,
+            password: form.password.value
+        }).then(load => {
+            console.log(load)
+            if (load.status == 200) {
+                let response = load.data
+                if (response.success) {
+                    toast.success('Registration Successful!')
+                    localStorage.setItem('user', JSON.stringify(response.data))
+                    setTimeout(() => {
+                        window.location = '/dashboard'
+                    }, 1000)
+                } else {
+                    toast.error(`Error: ${response.msg}`)
+                }
+            }
+            setLoading(false)
+        }).catch(error => {
+            setLoading(false)
+            console.log(error)
+            toast.error('Something went wrong. Try again later')
+        })
     }
 
     const changeFaculty = (value) => {
@@ -29,7 +83,6 @@ export default function Register() {
             setProgramsList([])
         } else {
             setProgramsList(faculties[found].programs)
-            console.log(faculties[found].programs)
         }
     }
 
@@ -79,9 +132,9 @@ export default function Register() {
                         <div className="flex items-center justify-center">
                             <Form.Group className="md:flex-1 px-4 mt-4 text-md" controlId="studyCenter">
                                 <Form.Label>Study Center</Form.Label>
-                                <Form.Select className="text-sm">
+                                <Form.Select className="text-sm" required>
 
-                                    <option>Select Study Center</option>
+                                    <option value={''}>Select Study Center</option>
                                     {studyCenters.map((item, i) =>
                                         <option key={i} value={item.code}>{item.code + ' ' + item.name}</option>
                                     )}
@@ -93,10 +146,11 @@ export default function Register() {
                             <Form.Group className="md:flex-1 px-4 mt-4 text-md" controlId="faculty">
                                 <Form.Label>Faculty of Choice</Form.Label>
                                 <Form.Select 
+                                    required
                                     className="text-sm"
                                     onChange={e => changeFaculty(e.target.value)}
                                 >
-                                    <option>Select Faculty</option>
+                                    <option value={''}>Select Faculty</option>
                                     {faculties.map((item, i) =>
                                         <option key={i} value={item.faculty}>{item.faculty}</option>
                                     )}
@@ -104,8 +158,8 @@ export default function Register() {
                             </Form.Group>
                             <Form.Group className="md:flex-1 px-4 mt-4 text-md" controlId="program">
                                 <Form.Label>Program of Choice</Form.Label>
-                                <Form.Select className="text-sm">
-                                    <option>Select Program</option>
+                                <Form.Select className="text-sm" required>
+                                    <option value={''}>Select Program</option>
                                     {programsList.map((item, i) =>
                                         <option key={i} value={item.code}>{item.name}</option>
                                     )}
@@ -126,12 +180,22 @@ export default function Register() {
                             </Form.Group>
                         </div>
                         <div className="flex items-end justify-between mt-5 pr-4">
-                            <Link href="/"><p className="text-gray-600 text-lg underline ml-4 hover:text-gray-900 cursor-pointer">Have an account? Log In</p></Link>
-                            <Button onClick={() => router.push('/dashboard')} varient="primary" type="submit">Register</Button>
+                            <Link href="/?login=true"><p className="text-gray-600 text-lg underline ml-4 hover:text-gray-900 cursor-pointer">Have an account? Log In</p></Link>
+                            <div className="flex items-center">
+                                {loading && <Spinner animation="border" variant="primary" />}
+                                <Button 
+                                    className='ml-5' 
+                                    disabled={loading}
+                                    varient="primary" 
+                                    type="submit"
+                                >Register</Button>
+                            </div>
                         </div>
                     </Form>
                 </div>
             </div>
+
+            <ToastContainer />
         </div>
     )
 }

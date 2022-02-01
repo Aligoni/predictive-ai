@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
+import React, { useState, useEffect} from 'react'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import Button from 'react-bootstrap/Button'
-import {useState} from 'react'
 
 const pages = [
     {name: 'Dashboard', link: 'dashboard'},
@@ -12,14 +13,37 @@ const pages = [
 ]
 
 export default function Navbar(props) {
+    const router = useRouter()
     const [show, setShow] = useState(false)
+
+    useEffect(() => {
+        let user = localStorage.getItem('user')
+        try {
+            user = JSON.parse(user)
+            if (user.id) {
+
+            } else {
+                localStorage.removeItem('user')
+                window.location = '/'
+            }
+        } catch (e) {
+            localStorage.removeItem('user')
+            window.location = '/'
+        }
+    }, [])
 
     const desktopNavbar = () => {
         return pages.map(page =>
             <div className="text-lg" key={page.name}>
-                <Link href={page.link}>
-                    <div className={`${props.page == page.name ? 'text-gray-200 border-blue-600' : 'border-gray-800 text-gray-200'} font-bold cursor-pointer py-6 mx-2 border-b-8 px-3 hover:bg-gray-900`}>{page.name}</div>
-                </Link>
+                {page.link == '/' ? 
+                    <div onClick={() => {
+                        localStorage.removeItem('user')
+                        window.location = '/' 
+                    }} className={`${props.page == page.name ? 'text-gray-200 border-blue-600' : 'border-gray-800 text-gray-200'} font-bold cursor-pointer py-6 mx-2 border-b-8 px-3 hover:bg-gray-900`}>{page.name}</div>:
+                    <Link href={page.link}>
+                        <div className={`${props.page == page.name ? 'text-gray-200 border-blue-600' : 'border-gray-800 text-gray-200'} font-bold cursor-pointer py-6 mx-2 border-b-8 px-3 hover:bg-gray-900`}>{page.name}</div>
+                    </Link>
+                }
             </div>
         )
     }

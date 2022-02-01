@@ -7,7 +7,13 @@ import Footer from '../components/Footer'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import {IconContext} from 'react-icons'
-import {FaGoogle, FaFacebookF} from 'react-icons/fa'
+import { FaGoogle, FaFacebookF } from 'react-icons/fa'
+import Spinner from 'react-bootstrap/Spinner'
+import { SERVER } from '../services/api'
+import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   const router = useRouter()
@@ -17,6 +23,33 @@ export default function Home() {
   const submitDocument = e => {
     e.preventDefault()
     e.stopPropagation()
+
+    const form = e.currentTarget
+
+    setLoading(true)
+    axios.post(`${SERVER}/users/login`, {
+      email: form.email.value,
+      password: form.password.value
+    }).then(load => {
+      console.log(load)
+      if (load.status == 200) {
+        let response = load.data
+        if (response.success) {
+          localStorage.setItem('user', JSON.stringify(response.data))
+          toast.success('Login Successful!')
+          setTimeout(() => {
+            window.location = '/dashboard'
+          }, 1000)
+        } else {
+          toast.error(`Error: ${response.msg}`)
+        }
+      }
+      setLoading(false)
+    }).catch(error => {
+      setLoading(false)
+      console.log(error)
+      toast.error('Something went wrong. Try again later')
+    })
   }
 
   const displayLoginForm = () => {
@@ -54,13 +87,18 @@ export default function Home() {
                 <Form.Control required type="password" placeholder="Password" />
               </Form.Group>
 
-              <div className="flex items-end justify-end mt-5 pr-4">
-                <p className="text-gray-400 text-lg underline mr-4 hover:text-gray-800 cursor-pointer">Don't have an account? Register</p>
-                <Button onClick={() => router.push('/dashboard')} varient="primary" type="submit">Login</Button>
+              <div className="flex items-end justify-between my-5 px-4">
+                <Link href="/register">
+                  <p className="text-gray-400 text-lg underline mr-4 hover:text-gray-800 cursor-pointer">No account? Register</p>
+                </Link>
+                <div className="flex items-center">
+                  {loading && <Spinner animation="border" variant="primary" />}
+                  <Button disabled={loading} className="ml-4" varient="primary" type="submit">Login</Button>
+                </div>
               </div>
             </Form>
 
-            <div className="px-7 my-4 flex items-center">
+            {/* <div className="px-7 my-4 flex items-center">
               <div className="flex-1 h-1 border-b border-gray-300"></div>
               <div className="text-lg text-gray-500 px-2 ">OR</div>
               <div className="flex-1 h-1 border-b border-gray-300"></div>
@@ -79,7 +117,7 @@ export default function Home() {
               </IconContext.Provider>
               <p className="my-2 text-lg text-white ">Continue with Facebook
               </p>
-            </div>
+            </div> */}
           </div>
         }
       </Modal>
@@ -108,7 +146,7 @@ export default function Home() {
 
         <div className="w-full flex items-center justify-between">
           <div className="flex-1">
-            <p className="text-6xl text-right leading-loose text-gray-200">
+            <p className="text-5xl text-right leading-loose text-gray-200">
               Analyze Student's Early Performance Using Artificial Neural Network 
             </p>
           </div>
@@ -148,6 +186,7 @@ export default function Home() {
       </div>
       <Footer />
       {displayLoginForm()}
+      <ToastContainer />
     </div>
   )
 }

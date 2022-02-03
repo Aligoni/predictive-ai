@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button'
 import Spinner from 'react-bootstrap/Spinner'
 import { BsPlusCircle, BsDashCircle } from 'react-icons/bs'
 import { ToastContainer, toast } from 'react-toastify';
+import { SERVER } from '../services/api'
+import axios from 'axios'
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -83,9 +85,10 @@ export default function AddDocument (props) {
         }
 
         let document = {}
+        document.userId = props.authUser.id
         document.name = form.name.value
         document.type = type
-        document.uploadDate = new Date()
+        // document.uploadDate = new Date()
         
         if (type == 'WAEC' || type == 'NECO') {
             document.centre = form.centre.value
@@ -128,19 +131,48 @@ export default function AddDocument (props) {
         }
         console.log(documentFile)
         document.fileUploaded = documentFile.name
+        console.log(document)
 
         toast.info('Processing')
-        setTimeout(() => {
+        
+        axios.post(`${SERVER}/${document.type.toLowerCase()}`, document)
+        .then(load => {
+            console.log(load)
+            if (load.status == 200) {
+                let response = load.data
+                if (response.success) {
+                    setType('')
+                    setRegisteredWaecSubjects(6)
+                    setLoading(false)
+                    setButtonLoading(false)
+                    setDocumentFile(null)
+                    toast.success('Document added successfully')
 
-            setType('')
-            setRegisteredWaecSubjects(6)
+                    props.refreshList({...response.data, type: document.type})
+                } else {
+                    setButtonLoading(false)
+                    toast.error(`Error: ${response.msg}`)
+                    setLoading(false)
+                }
+            }
+        }).catch(error => {
             setLoading(false)
+            console.log(error)
             setButtonLoading(false)
-            setDocumentFile(null)
-            toast.success('Document added successfully')
+            toast.error('Something went wrong. Try again later')
+        })
+        
+        // setTimeout(() => {
 
-            props.refreshList(document)
-        }, 1500)
+        //     setType('')
+        //     setRegisteredWaecSubjects(6)
+        //     setLoading(false)
+        //     setButtonLoading(false)
+        //     setDocumentFile(null)
+        //     toast.success('Document added successfully')
+
+        //     props.refreshList(document)
+        // }, 1500)
 
     }
 

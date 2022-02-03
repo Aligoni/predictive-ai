@@ -17,17 +17,17 @@ export default function Navbar(props) {
     const [show, setShow] = useState(false)
 
     useEffect(() => {
-        let user = localStorage.getItem('user')
+        let user = localStorage.getItem('predictive-user')
         try {
             user = JSON.parse(user)
             if (user.id) {
 
             } else {
-                localStorage.removeItem('user')
+                localStorage.removeItem('predictive-user')
                 window.location = '/'
             }
         } catch (e) {
-            localStorage.removeItem('user')
+            localStorage.removeItem('predictive-user')
             window.location = '/'
         }
     }, [])
@@ -37,7 +37,7 @@ export default function Navbar(props) {
             <div className="text-lg" key={page.name}>
                 {page.link == '/' ? 
                     <div onClick={() => {
-                        localStorage.removeItem('user')
+                        localStorage.removeItem('predictive-user')
                         window.location = '/' 
                     }} className={`${props.page == page.name ? 'text-gray-200 border-blue-600' : 'border-gray-800 text-gray-200'} font-bold cursor-pointer py-6 mx-2 border-b-8 px-3 hover:bg-gray-900`}>{page.name}</div>:
                     <Link href={page.link}>

@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Link from 'next/link'
 import Navbar from "../components/Navbar"
 import Modal from 'react-bootstrap/Modal'
@@ -84,7 +84,24 @@ export default function Dashboard() {
     const [carouselIndex, setCarouselIndex] = useState(0)
     const [activeWaecCard, setActiveWaecCard] = useState(-1)
     const [activeJambCard, setActiveJambCard] = useState(-1)
+    const [authUser, setAuthUser] = useState({})
 
+    useEffect(() => {
+        let user = localStorage.getItem('predictive-user')
+        try {
+            user = JSON.parse(user)
+            if (user.id) {
+                setAuthUser(user)
+            } else {
+                localStorage.removeItem('predictive-user')
+                window.location = '/'
+            }
+        } catch (e) {
+            localStorage.removeItem('predictive-user')
+            window.location = '/'
+        }
+    }, [])
+    
     const selectType = (temp) => {
         // if (temp.type == 'Masters Degree') return
         setDocumentType(temp)
@@ -500,7 +517,7 @@ export default function Dashboard() {
     return (
         <div className="min-h-screen bg-blue-100">
             <Navbar page='Dashboard'/>
-            <div className="p-6 md:px-20 text-xl md:text-2xl">Welcome, Muhammad</div>
+            <div className="p-6 md:px-20 text-xl md:text-2xl">Welcome, {authUser?.fname}</div>
 
             <div className="py-4 text-center text-bold text-2xl md:text-4xl bg-white shadow-lg">History</div>
             {evaluated.length > 0 ?

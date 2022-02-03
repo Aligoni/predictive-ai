@@ -61,7 +61,7 @@ export default function Register() {
                 let response = load.data
                 if (response.success) {
                     toast.success('Registration Successful!')
-                    localStorage.setItem('user', JSON.stringify(response.data))
+                    localStorage.setItem('predictive-user', JSON.stringify(response.data))
                     setTimeout(() => {
                         window.location = '/dashboard'
                     }, 1000)

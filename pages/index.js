@@ -35,16 +35,16 @@ export default function Home() {
       if (load.status == 200) {
         let response = load.data
         if (response.success) {
-          localStorage.setItem('user', JSON.stringify(response.data))
+          localStorage.setItem('predictive-user', JSON.stringify(response.data))
           toast.success('Login Successful!')
           setTimeout(() => {
             window.location = '/dashboard'
           }, 1000)
         } else {
           toast.error(`Error: ${response.msg}`)
+          setLoading(false)
         }
       }
-      setLoading(false)
     }).catch(error => {
       setLoading(false)
       console.log(error)

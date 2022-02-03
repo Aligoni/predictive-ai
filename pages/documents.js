@@ -5,6 +5,12 @@ import Modal from 'react-bootstrap/Modal'
 import Footer from '../components/Footer'
 import AddDocument from '../components/AddDocument'
 import styles from '../styles/Documents.module.scss'
+import Spinner from 'react-bootstrap/Spinner'
+import { SERVER } from '../services/api'
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
 
 const typeStyles = {
     WAEC: "bg-blue-700 bg-opacity-75 text-gray-200 font-bold",
@@ -17,6 +23,49 @@ export default function Documents() {
     const [uploaded, setUploaded] = useState([])
     const [showModal, setShowModal] = useState(false)
     const [documentSelected, setDocumentSelected] = useState({})
+    const [authUser, setAuthUser] = useState({})
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        let user = localStorage.getItem('predictive-user')
+        try {
+            user = JSON.parse(user)
+            if (user.id) {
+                setAuthUser(user)
+            } else {
+                localStorage.removeItem('predictive-user')
+                window.location = '/'
+            }
+        } catch (e) {
+            localStorage.removeItem('predictive-user')
+            window.location = '/'
+        }
+
+        axios.get(`${SERVER}/users/${user.id}`)
+            .then(async load => {
+                console.log(load)
+                if (load.status == 200) {
+                    let response = load.data
+                    if (response.success) {
+                        const update = []
+                        for (let waec of response.data.waecs) {
+                            waec = await axios.get(`${SERVER}/waec/${waec.id}`)
+                            update.push({...waec.data.data, type: 'WAEC'})
+                        }
+                        setUploaded(update)
+                        console.log(update)
+                        setLoading(false)
+                    } else {
+                        toast.error(`Error: ${response.msg}`)
+                        setLoading(false)
+                    }
+                }
+            }).catch(error => {
+                setLoading(false)
+                console.log(error)
+                toast.error('Something went wrong. Try again later')
+            })
+    }, [])
 
     const refreshDocumentList = (item) => {
         setUploaded([...uploaded, item])
@@ -65,7 +114,7 @@ export default function Documents() {
                             <div className="text-xl py-1 border-b-2 border-t-2 border-blue-700 mb-2 px-4">
                                 Name of file uploaded: {documentSelected.fileUploaded}
                             </div>
-                            <div className="text-right m-4 text-xl font-bold">Upload Date: {documentSelected.uploadDate.toDateString()}</div>
+                            {/* <div className="text-right m-4 text-xl font-bold">Upload Date: {documentSelected.uploadDate.toDateString()}</div> */}
                         </div> :
                     documentSelected.type == 'WAEC' ?
                         <div>
@@ -91,7 +140,7 @@ export default function Documents() {
                             <div className="text-xl py-1 border-b-2 border-t-2 border-blue-700 mb-2 px-4">
                                 Name of file uploaded: {documentSelected.fileUploaded}
                             </div>
-                            <div className="text-right m-4 text-xl font-bold">Upload Date: {documentSelected.uploadDate.toDateString()}</div>
+                            <div className="text-right m-4 text-xl font-bold">Upload Date: no date</div>
                         </div>:
                     documentSelected.type == 'NECO' ?
                         <div>
@@ -117,7 +166,7 @@ export default function Documents() {
                             <div className="text-xl py-1 border-b-2 border-t-2 border-blue-700 mb-2 px-4">
                                 Name of file uploaded: {documentSelected.fileUploaded}
                             </div>
-                            <div className="text-right m-4 text-xl font-bold">Upload Date: {documentSelected.uploadDate.toDateString()}</div>
+                            {/* <div className="text-right m-4 text-xl font-bold">Upload Date: {documentSelected.uploadDate.toDateString()}</div> */}
                         </div>:
                     documentSelected.type == 'First Degree' ?
                         <div>
@@ -133,7 +182,7 @@ export default function Documents() {
                             <div className="text-xl py-1 border-b-2 border-t-2 border-blue-700 mb-2 px-4">
                                 Name of file uploaded: {documentSelected.fileUploaded}
                             </div>
-                            <div className="text-right m-4 text-xl font-bold">Upload Date: {documentSelected.uploadDate.toDateString()}</div>
+                            {/* <div className="text-right m-4 text-xl font-bold">Upload Date: {documentSelected.uploadDate.toDateString()}</div> */}
                         </div>: null
                     }
                 </div>
@@ -155,13 +204,13 @@ export default function Documents() {
                                 </div>
                                 <div className="md:flex align-items justify-between md:mb-2">
                                     {document.type == 'First Degree' ? <p className="flex-1 text-lg truncate">Course: {document.course}</p> : <p className="flex-1 text-lg truncate">Year of Exams: {document.year}</p>}
-                                    {document.type == 'WAEC' ? <p className="flex-1 text-lg truncate md:text-right">Center of Exams: {document.centre}</p>:
-                                    document.type == 'JAMB' ? <p className="flex-1 text-lg truncate md:text-right">JAMB SCORE: {document.score}</p> :
+                                    {document.type == 'WAEC' ? <p className="flex-1 text-lg truncate md:text-right">Centre: {document.centre}</p>:
+                                    document.type == 'JAMB' ? <p className="flex-1 text-lg truncate md:text-right">JAMB score: {document.score}</p> :
                                     document.type == 'First Degree' ? <p className="flex-1 text-lg truncate md:text-right">Degree: {document.degreeClass}</p> :
-                                    document.type == 'NECO' ? <p className="flex-1 text-lg truncate md:text-right">Center of Exams: {document.centre}</p> : null}
+                                    document.type == 'NECO' ? <p className="flex-1 text-lg truncate md:text-right">Centre: {document.centre}</p> : null}
                                 </div>
                                 <div className="md:flex justify-end">
-                                    <p className="text-md">Upload Date: {document.uploadDate.toDateString()}</p>
+                                    <p className="text-md">Upload Date: {new Date(document.updatedAt).toDateString()}</p>
                                 </div>
                             </div>
                         </div>
@@ -184,13 +233,19 @@ export default function Documents() {
             <Navbar page="Documents"/>
 
             <div className="py-4 text-center text-bold text-2xl md:text-4xl bg-white shadow-md">Uploaded Documents</div>
-            {displayUploadedDocuments()}
+            {loading ? 
+            <div className="flex justify-center w-full p-6 mt-8">
+                <Spinner animation="border" variant="primary" />
+            </div> :
+            displayUploadedDocuments()}
+
             {displaySelectedModal()}()
 
             <div className="py-4 text-center text-bold text-2xl md:text-4xl bg-white shadow-md mt-6">Add Document</div>
 
-            <AddDocument refreshList={refreshDocumentList}/>
+            <AddDocument refreshList={refreshDocumentList} authUser={authUser} />
             <Footer />
+            <ToastContainer />
         </div>
     )
 }

@@ -52,6 +52,10 @@ export default function Documents() {
                             waec = await axios.get(`${SERVER}/waec/${waec.id}`)
                             update.push({...waec.data.data, type: 'WAEC'})
                         }
+                        for (let neco of response.data.necos) {
+                            neco = await axios.get(`${SERVER}/neco/${neco.id}`)
+                            update.push({ ...neco.data.data, type: 'NECO' })
+                        }
                         setUploaded(update)
                         console.log(update)
                         setLoading(false)
@@ -140,7 +144,7 @@ export default function Documents() {
                             <div className="text-xl py-1 border-b-2 border-t-2 border-blue-700 mb-2 px-4">
                                 Name of file uploaded: {documentSelected.fileUploaded}
                             </div>
-                            <div className="text-right m-4 text-xl font-bold">Upload Date: no date</div>
+                                    <div className="text-right m-4 text-xl font-bold">Upload Date: {new Date(documentSelected.updatedAt).toDateString()}</div>
                         </div>:
                     documentSelected.type == 'NECO' ?
                         <div>
@@ -166,8 +170,8 @@ export default function Documents() {
                             <div className="text-xl py-1 border-b-2 border-t-2 border-blue-700 mb-2 px-4">
                                 Name of file uploaded: {documentSelected.fileUploaded}
                             </div>
-                            {/* <div className="text-right m-4 text-xl font-bold">Upload Date: {documentSelected.uploadDate.toDateString()}</div> */}
-                        </div>:
+                                <div className="text-right m-4 text-xl font-bold">Upload Date: {new Date(documentSelected.updatedAt).toDateString()}</div>
+                            </div>:
                     documentSelected.type == 'First Degree' ?
                         <div>
                             <div className="md:flex align-items justify-between md:my-2 md:mx-3 font-bold">

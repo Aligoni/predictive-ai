@@ -56,6 +56,10 @@ export default function Documents() {
                             neco = await axios.get(`${SERVER}/neco/${neco.id}`)
                             update.push({ ...neco.data.data, type: 'NECO' })
                         }
+                        for (let jamb of response.data.jambs) {
+                            jamb = await axios.get(`${SERVER}/jamb/${jamb.id}`)
+                            update.push({ ...jamb.data.data, type: 'JAMB' })
+                        }
                         setUploaded(update)
                         console.log(update)
                         setLoading(false)
@@ -102,7 +106,7 @@ export default function Documents() {
                             </div>
                             <div className="md:flex align-items justify-between md:mb-2 md:mx-3 font-bold">
                                 <p className="flex-1 text-lg">Registration Number: {documentSelected.registrationNo}</p>
-                                <p className="flex-1 truncate md:text-right text-lg">Score: {documentSelected.score}</p>
+                                <p className="flex-1 truncate md:text-right text-lg">Score: {documentSelected.jambScore}</p>
                             </div>
                             <div className="text-2xl py-1 border-b-2 border-t-2 border-blue-700 my-2 text-blue-700 text-center">
                                 Subjects Selected
@@ -118,7 +122,7 @@ export default function Documents() {
                             <div className="text-xl py-1 border-b-2 border-t-2 border-blue-700 mb-2 px-4">
                                 Name of file uploaded: {documentSelected.fileUploaded}
                             </div>
-                            {/* <div className="text-right m-4 text-xl font-bold">Upload Date: {documentSelected.uploadDate.toDateString()}</div> */}
+                            <div className="text-right m-4 text-xl font-bold">Upload Date: {new Date(documentSelected.updatedAt).toDateString()}</div>
                         </div> :
                     documentSelected.type == 'WAEC' ?
                         <div>
@@ -209,7 +213,7 @@ export default function Documents() {
                                 <div className="md:flex align-items justify-between md:mb-2">
                                     {document.type == 'First Degree' ? <p className="flex-1 text-lg truncate">Course: {document.course}</p> : <p className="flex-1 text-lg truncate">Year of Exams: {document.year}</p>}
                                     {document.type == 'WAEC' ? <p className="flex-1 text-lg truncate md:text-right">Centre: {document.centre}</p>:
-                                    document.type == 'JAMB' ? <p className="flex-1 text-lg truncate md:text-right">JAMB score: {document.score}</p> :
+                                    document.type == 'JAMB' ? <p className="flex-1 text-lg truncate md:text-right">JAMB score: {document.jambScore}</p> :
                                     document.type == 'First Degree' ? <p className="flex-1 text-lg truncate md:text-right">Degree: {document.degreeClass}</p> :
                                     document.type == 'NECO' ? <p className="flex-1 text-lg truncate md:text-right">Centre: {document.centre}</p> : null}
                                 </div>

@@ -78,6 +78,7 @@ export default function AddDocument (props) {
                 return
             }
 
+            // Redundant check after update
             if (selectedSubjects.length < 8) {
                 toast.error('Error: Must add at least eight subjects')
                 return
@@ -115,7 +116,7 @@ export default function AddDocument (props) {
             
             document.registrationNo = form.registrationNo.value
             document.year = form.year.value
-            document.score = form.jambScore.value
+            document.jambScore = form.jambScore.value
 
             selectedSubjects = []
             for (let i = 0; i < form.subject.length; i++)

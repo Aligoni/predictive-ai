@@ -213,13 +213,13 @@ export default function Dashboard() {
                         indicators={false}
                     >
                         <Carousel.Item>
-                            <div className="align-image h-100 relative rounded">
+                            <div className="align-image h-100 relative">
                                 <img
-                                    className="d-block rounded"
+                                    className="d-block"
                                     src="/images/degree.jpg"
                                     alt="First slide"
                                 />
-                                <div className="p-8 items-start flex flex-col justify-between rounded absolute left-0 right-0 top-0 bottom-0 bg-black bg-opacity-75 text-gray-200 font-bold">
+                                <div className="p-8 items-start flex flex-col justify-between absolute left-0 right-0 top-0 bottom-0 bg-black bg-opacity-75 text-gray-200 font-bold">
                                     <div className="w-full text-center text-3xl mt-4">First Degree</div>
                                     <div className="text-xl">
                                         For your first degree, you need to select a WAEC/NECO and JAMB result to use for the evaluation.
@@ -232,13 +232,13 @@ export default function Dashboard() {
                             </div>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <div className="align-image h-100 relative rounded">
+                            <div className="align-image h-100 relative">
                                 <img
-                                    className="d-block rounded"
+                                    className="d-block"
                                     src="/images/waec.png"
                                     alt="First slide"
                                 />
-                                <div className="p-8 items-start flex flex-col justify-between rounded absolute left-0 right-0 top-0 bottom-0 bg-black bg-opacity-75 text-gray-200 font-bold">
+                                <div className="p-8 items-start flex flex-col justify-between absolute left-0 right-0 top-0 bottom-0 bg-black bg-opacity-75 text-gray-200 font-bold">
                                     <div className="w-full text-center text-3xl mt-4">First Degree</div>
                                     <div className="my-10 w-full overflow-y-auto">
                                         <div className="text-xl ml-4 mb-3">Please select your WAEC or NECO result for evaluation:</div>

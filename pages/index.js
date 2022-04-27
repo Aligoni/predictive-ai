@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Form from 'react-bootstrap/Form'
@@ -18,7 +18,22 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Home() {
   const router = useRouter()
   const [showModal, setShowModal] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false)
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    let user = localStorage.getItem('predictive-user')
+    try {
+      user = JSON.parse(user)
+      if (user.id) {
+        setLoggedIn(true)
+      } else {
+        setLoggedIn(false)
+      }
+    } catch (e) {
+      setLoggedIn(false)
+    }
+  }, [])
 
   const submitDocument = e => {
     e.preventDefault()
@@ -131,16 +146,25 @@ export default function Home() {
           {/* <img className="w-24 h-16 my-3 ml-3" src="/logo.png" alt="logo"></img> */}
           <p className="text-2xl font-bold text-blue-700 ml-3">Predictive Grader</p>
           <div className="flex items-center my-5">
-            <div className="text-xl mr-6">
+            {!loggedIn ? 
+              <>
+                <div className="text-xl mr-6">
 
-              <div onClick={() => setShowModal(true)} className="cursor-pointer px-8 py-2 bg-blue-900 rounded-md text-white pointer">Log In</div>
+                  <div onClick={() => setShowModal(true)} className="cursor-pointer px-8 py-2 bg-blue-900 rounded-md text-white pointer">Log In</div>
 
-            </div>
-            <div className="text-xl mr-5 ml-3">
-              <Link href="/register">
-                <p className="cursor-pointer font-bold text-blue-800">Register</p>
-              </Link>
-            </div>
+                </div>
+                <div className="text-xl mr-5 ml-3">
+                  <Link href="/register">
+                    <p className="cursor-pointer font-bold text-blue-800">Register</p>
+                  </Link>
+                </div>
+              </> :
+              <div className="text-xl mr-5 ml-3 mt-3 ">
+                <Link href="/dashboard">
+                  <p className="cursor-pointer font-bold text-2xl text-gray-400">Dashboard</p>
+                </Link>
+              </div>
+            }
           </div>
         </div>
 

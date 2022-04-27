@@ -125,7 +125,7 @@ export default function Register() {
 
                             <Form.Group className="md:flex-1 px-4 text-md" controlId="number">
                                 <Form.Label>Phone Number</Form.Label>
-                                <Form.Control className="text-sm" required type="text" placeholder="+234 00000 0000" />
+                                <Form.Control className="text-sm" required type="number" placeholder="+234 00000 0000" />
                             </Form.Group>
                         </div>
 

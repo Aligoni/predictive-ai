@@ -119,8 +119,7 @@ export default function Documents() {
                                     </div>
                                 )}
                             </div>
-                            <div className="text-xl py-1 border-b-2 border-t-2 border-blue-700 mb-2 px-4">
-                                Name of file uploaded: {documentSelected.fileUploaded}
+                            <div className="text-xl py-1 border-b-2 border-blue-700 mb-2 px-4">
                             </div>
                             <div className="text-right m-4 text-xl font-bold">Upload Date: {new Date(documentSelected.updatedAt).toDateString()}</div>
                         </div> :
@@ -145,8 +144,7 @@ export default function Documents() {
                                     </div>
                                 )}
                             </div>
-                            <div className="text-xl py-1 border-b-2 border-t-2 border-blue-700 mb-2 px-4">
-                                Name of file uploaded: {documentSelected.fileUploaded}
+                            <div className="text-xl py-1 border-b-2 border-blue-700 mb-2 px-4">
                             </div>
                                     <div className="text-right m-4 text-xl font-bold">Upload Date: {new Date(documentSelected.updatedAt).toDateString()}</div>
                         </div>:
@@ -171,8 +169,7 @@ export default function Documents() {
                                     </div>
                                 )}
                             </div>
-                            <div className="text-xl py-1 border-b-2 border-t-2 border-blue-700 mb-2 px-4">
-                                Name of file uploaded: {documentSelected.fileUploaded}
+                            <div className="text-xl py-1 border-b-2 border-blue-700 mb-2 px-4">
                             </div>
                                 <div className="text-right m-4 text-xl font-bold">Upload Date: {new Date(documentSelected.updatedAt).toDateString()}</div>
                             </div>:
@@ -187,8 +184,7 @@ export default function Documents() {
                                 <p className="flex-1 truncate md:text-right text-lg">Degree: {documentSelected.degreeClass}</p>
                             </div>
                             
-                            <div className="text-xl py-1 border-b-2 border-t-2 border-blue-700 mb-2 px-4">
-                                Name of file uploaded: {documentSelected.fileUploaded}
+                            <div className="text-xl py-1 border-b-2 border-blue-700 mb-2 px-4">
                             </div>
                             {/* <div className="text-right m-4 text-xl font-bold">Upload Date: {documentSelected.uploadDate.toDateString()}</div> */}
                         </div>: null

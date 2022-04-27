@@ -63,6 +63,8 @@ export default function AddDocument (props) {
     }
 
     const submitDocument = event => {
+        if (loading) return
+        
         const form = event.currentTarget;
         event.preventDefault();
         event.stopPropagation();
@@ -86,21 +88,35 @@ export default function AddDocument (props) {
         }
 
         let document = {}
+        let formData = new FormData()
+
         document.userId = props.authUser.id
         document.name = form.name.value
         document.type = type
+
+        formData.append('userId', props.authUser.id)
+        formData.append('name', form.name.value)
+        formData.append('type', type)
         // document.uploadDate = new Date()
         
         if (type == 'WAEC' || type == 'NECO') {
+
             document.centre = form.centre.value
             document.candidateNo = form.candidateNo.value
             document.year = form.year.value
+
+            formData.append('centre', form.centre.value)
+            formData.append('candidateNo', form.candidateNo.value)
+            formData.append('year', form.year.value)
 
             selectedSubjects = []
             for (let i = 0; i < form.subject.length; i++)
                 selectedSubjects.push({ subject: form.subject[i].value, grade: form.grade[i].value })
 
             document.subjects = selectedSubjects
+            selectedSubjects.forEach(subject => {
+                formData.append('subjects', JSON.stringify(subject))
+            })
         }
 
         if (type == 'JAMB') {
@@ -113,30 +129,52 @@ export default function AddDocument (props) {
                 toast.error('Error: Duplicate Subjects selected')
                 return
             }
-            
+
+            formData.append('jambScore', form.jambScore.value)
+            formData.append('registrationNo', form.registrationNo.value)
+            formData.append('year', form.year.value)
+
             document.registrationNo = form.registrationNo.value
             document.year = form.year.value
             document.jambScore = form.jambScore.value
 
             selectedSubjects = []
-            for (let i = 0; i < form.subject.length; i++)
+            let totalScore = 0
+            for (let i = 0; i < form.subject.length; i++) {
                 selectedSubjects.push({ subject: form.subject[i].value, score: form.score[i].value })
+                totalScore+= parseInt(form.score[i].value)
+            }
+
+            console.log(totalScore+", "+ document.jambScore)
+            if (totalScore != document.jambScore) {
+                toast.error('Error: Total score and subject scores do not add up!')
+                return
+            }
 
             document.subjects = selectedSubjects
+            selectedSubjects.forEach(subject => {
+                formData.append('subjects', JSON.stringify(subject))
+            })
         }
 
         if (type == 'First Degree') {
             document.course = form.course.value
             document.degreeClass = form.degreeClass.value
             document.convocation = form.convocation.value
+
+            form.append('course', form.course.value)
+            form.append('degreClass', form.degreeClass.value)
+            form.append('convocation', form.convocation.value)
         }
         console.log(documentFile)
         document.fileUploaded = documentFile.name
+        formData.append('file', documentFile)
         console.log(document)
 
+        setLoading(true)
         toast.info('Processing')
         
-        axios.post(`${SERVER}/${document.type.toLowerCase()}`, document)
+        axios.post(`${SERVER}/${document.type.toLowerCase()}`, formData)
         .then(load => {
             console.log(load)
             if (load.status == 200) {
@@ -330,6 +368,7 @@ export default function AddDocument (props) {
                                 <Form.Control
                                     required
                                     type="file"
+                                    accept=".pdf"
                                     onChange={(e) => {
                                         setDocumentFile(e.target.files[0])
                                     }}
@@ -507,6 +546,7 @@ export default function AddDocument (props) {
                                 <Form.Control
                                     required
                                     type="file"
+                                    accept=".pdf"
                                     onChange={(e) => {
                                         setDocumentFile(e.target.files[0])
                                     }}
@@ -635,6 +675,7 @@ export default function AddDocument (props) {
                             <Form.Control
                                 required
                                 type="file"
+                                accept=".pdf"
                                 onChange={(e) => {
                                     setDocumentFile(e.target.files[0])
                                 }}
@@ -712,6 +753,7 @@ export default function AddDocument (props) {
                             <Form.Control
                                 required
                                 type="file"
+                                accept=".pdf"
                                 onChange={(e) => {
                                     setDocumentFile(e.target.files[0])
                                 }}

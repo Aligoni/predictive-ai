@@ -43,7 +43,6 @@ export default function Documents() {
 
         axios.get(`${SERVER}/users/${user.id}`)
             .then(async load => {
-                console.log(load)
                 if (load.status == 200) {
                     let response = load.data
                     if (response.success) {
@@ -61,7 +60,6 @@ export default function Documents() {
                             update.push({ ...jamb.data.data, type: 'JAMB' })
                         }
                         setUploaded(update)
-                        console.log(update)
                         setLoading(false)
                     } else {
                         toast.error(`Error: ${response.msg}`)

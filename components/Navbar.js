@@ -61,10 +61,12 @@ export default function Navbar(props) {
     
     return (
         <div className="flex items-center justify-between px-6 shadow-md bg-gray-800">
-            <div className="flex items-center justify-center">
-                <img className="w-20 h-14 md:ml-3" src="/logo.png" alt="logo"></img>
-                <div className="ml-3 text-xl font-bold text-gray-200">Result evaluator</div>
-            </div>
+            <Link href="/">
+                <div className="flex items-center justify-center cursor-pointer">
+                    <img className="w-20 h-14 md:ml-3" src="/logo.png" alt="logo"></img>
+                    <div className="ml-3 text-xl font-bold text-gray-200">Result evaluator</div>
+                </div>
+            </Link>
             <div className="items-center hidden md:flex">
                 {desktopNavbar()}
             </div>

@@ -32,7 +32,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="bg-gray-600 text-gray-200 p-2 text-center text-lg">© 2021 Copyright</div>
+            <div className="bg-gray-600 text-gray-200 p-2 text-center text-lg">© 2022 Copyright</div>
 
         </div>
     )

@@ -75,6 +75,20 @@ export default function Documents() {
 
     const refreshDocumentList = (item) => {
         setUploaded([...uploaded, item])
+
+        axios.get(`${SERVER}/users/${authUser.id}`)
+            .then(load => {
+                if (load.status == 200) {
+                    let response = load.data
+                    if (response.success) {
+                        localStorage.setItem('predictive-user', JSON.stringify(response.data))
+                    }
+                }
+                setLoading(false)
+            }).catch(error => {
+                setLoading(false)
+                console.log(error)
+            })
     }
 
     const displaySelectedModal = () => {

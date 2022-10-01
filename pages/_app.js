@@ -5,8 +5,10 @@ import Head from "next/head"
 import NextProgress from "next-progress"
 
 import React, { useState, useEffect } from 'react'
+import styles from '../styles/MyApp.module.scss'
 import Spinner from 'react-bootstrap/Spinner'
 import { SERVER } from '../services/api'
+
 import axios from 'axios'
 
 function MyApp({ Component, pageProps }) {
@@ -54,8 +56,9 @@ function MyApp({ Component, pageProps }) {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
+        <div className={styles.loader}></div>
         {/* <Spinner animation="border" variant="primary" /> */}
-        Loading
+        {/* Loading */}
       </div>
     )
   }

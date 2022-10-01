@@ -23,37 +23,12 @@ const types = [
     }
 ]
 
-const noDoc = "You don't have the required result. Go to the Documents page to upload"
-
 const typeStyles = {
     'Masters Degree': "bg-green-700 bg-opacity-75 text-gray-200 font-bold",
     'First Degree': "bg-red-700 bg-opacity-75",
 }
 
 export default function Dashboard() {
-    const [evaluated, setEvaluated] = useState([
-        {
-            type: 'First Degree',
-            date: new Date(),
-            feedback: {
-                recommended: [
-                    {
-                        course: 'Computer Science',
-                        viability: 'Very High',
-                    },
-                    {
-                        course:  'Computer Engineering',
-                        viability: 'High'
-                    },
-                    {
-                        course: 'Mathematics',
-                        viability: 'High'
-                    }
-                ],
-
-            }
-        }
-    ])
     const [showModal, setShowModal] = useState(false)
     const [documentType, setDocumentType] = useState({})
     const [authUser, setAuthUser] = useState({})
@@ -72,11 +47,19 @@ export default function Dashboard() {
             localStorage.removeItem('predictive-user')
             window.location = '/'
         }
+
+        console.log(user)
     }, [])
     
     const selectType = (temp) => {
         setDocumentType(temp)
         setShowModal(true)
+    }
+
+    const getViability = (score) => {
+        return score > 79 ? "Very High" :
+            score > 69 ? "High" :
+            score > 49 ? "Good" : "Poor"
     }
 
     return (
@@ -85,7 +68,37 @@ export default function Dashboard() {
             <div className="p-6 md:px-20 text-xl md:text-2xl">Welcome, {authUser?.fname}</div>
 
             <div className="py-4 text-center text-bold text-2xl md:text-4xl bg-white shadow-lg">History</div>
-            {evaluated.length > 0 ?
+            {authUser.evaluations?.length > 0 ?
+                <div className="flex justify-start w-full flex-wrap my-8 px-8">
+                    {authUser.evaluations.map((document, i) =>
+                        <div key={i} className={`${styles.resultCard} ${document.type == 'First Degree' ? styles.degreeImage : document.type == 'NECO' ? styles.necoImage : ''} shadow-lg rounded-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105`}>
+                            <div onClick={() => {}} className={`text-gray-200 font-bold bg-blue-700 bg-opacity-75 rounded-xl p-4 text-lg cursor-pointer`}>
+
+                                <div className="md:flex align-items justify-between md:mb-2">
+                                    <p className="flex-1 text-lg truncate">Type: {document.type}</p>
+                                    <p className="flex-1 truncate md:text-right text-lg">Viability: {getViability(document.score)}</p>
+                                </div>
+                                <div className="md:flex justify-start md:mb-2">
+                                    <p className="text-md">Recommended: {document.recommended}</p>
+                                </div>
+                                {/* <div className="md:flex align-items justify-between md:mb-2">
+                                    <p className="flex-1 text-lg truncate">Recommended: {document.recommended}</p>
+                                    <p className="flex-1 truncate md:text-right text-lg">Viability: {document.score}</p>
+                                </div> */}
+                                <div className="md:flex justify-start">
+                                    <p className="text-md">Evaluation Date: {new Date(document.updatedAt).toDateString()}</p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div> :
+                <div className="flex justify-center w-full p-6 my-4">
+                    <div className="flex flex-1 md:flex-initial justify-center items-center p-10 rounded-xl border-1 border-blue-800 bg-blue-400 shadow-md text-white font-bold text-xl text-center">
+                        You have not evaluated a result yet
+                    </div>
+                </div>
+            }
+            {/* {evaluated.length > 0 ?
                 <div className="flex justify-start w-full flex-wrap my-8 px-8">
                     {evaluated.map((document, i) =>
                         <div key={i} className={`${styles.resultCard} ${document.type == 'WAEC' ? styles.waecImage : document.type == 'JAMB' ? styles.jambImage : document.type == 'First Degree' ? styles.degreeImage : document.type == 'NECO' ? styles.necoImage : ''} shadow-lg rounded-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105`}>
@@ -111,8 +124,7 @@ export default function Dashboard() {
                         You have not evaluated a result yet
                     </div>
                 </div>
-            }
-
+            } */}
             <div className="py-4 text-center text-bold text-2xl md:text-4xl bg-white shadow-md">Evaluate Result</div>
             {types.map((document, i) => 
                 <div key={i} className="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105 m-4 md:my-10 md:mx-60 bg-white flex flex-col shadow-md rounded">

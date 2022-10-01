@@ -27,6 +27,7 @@ export default function EvaluateResult({
     }, [])
 
     const changeIndex = (next) => {
+        if (loading) return
         if (documentType.type == 'First Degree') {
             if (next) {
                 if (carouselIndex == 0) {
@@ -47,14 +48,39 @@ export default function EvaluateResult({
                     setCarouselIndex(3)
                 }
                 if (carouselIndex == 3) {
-                    toast.success('Evaluation request sent successfully')
-
-                    setCarouselIndex(0)
-                    setShowModal(false)
-                    setActiveJambCard(-1)
-                    setActiveWaecCard(-1)
-                    setDocumentType({})
-                    return
+                    toast.info('Loading')
+                    setLoading(true)
+                    
+                    axios.post(`${SERVER}/evaluation/first-degree`, {
+                        userId: authUser.id,
+                        waecId: waecUploaded[activeWaecCard].id,
+                        jambId: jambUploaded[activeJambCard].id
+                    }).then(load => {
+                        if (load.status === 200) {
+                            let response = load.data
+                            if (response.success == true) {
+                                console.log(response.data)
+                                toast.success(response.msg)
+                                window.location = '/dashboard'
+                                setCarouselIndex(0)
+                                setShowModal(false)
+                                setActiveJambCard(-1)
+                                setActiveWaecCard(-1)
+                                setDocumentType({})
+                                return
+                            }else {
+                                toast.error('Error: '+ response.msg)
+                            }
+                        } else {
+                            toast.error('Error: '+ response.msg)
+                        }
+                        setLoading(false)
+                        // setCarouselIndex(carouselIndex - 1)
+                    }).catch(error => {
+                        console.log(error)
+                        toast.error('Something went wrong')
+                        setLoading(false)
+                    })
                 }
             } else {
                 if (carouselIndex == 0) {
@@ -110,6 +136,21 @@ export default function EvaluateResult({
         }
     }
 
+    const CarouselLayout = (props) => {
+        return (
+            <div className={"align-image h-100 relative"+ (props.style || "")}>
+                <img
+                    className="d-block"
+                    src="/images/degree.jpg"
+                    alt="First slide"
+                />
+                <div className={"p-4 md:p-8 items-start flex flex-col justify-between absolute left-0 right-0 top-0 bottom-0 bg-black bg-opacity-75 text-gray-200 font-bold"+ (props.style || "")}>
+                    {props.children}
+                </div>
+            </div>
+        )
+    }
+
     return (
         <Modal
             show={showModal}
@@ -130,33 +171,21 @@ export default function EvaluateResult({
                     indicators={false}
                 >
                     <Carousel.Item>
-                        <div className="align-image h-100 relative">
-                            <img
-                                className="d-block"
-                                src="/images/degree.jpg"
-                                alt="First slide"
-                            />
-                            <div className="p-8 items-start flex flex-col justify-between absolute left-0 right-0 top-0 bottom-0 bg-black bg-opacity-75 text-gray-200 font-bold">
-                                <div className="w-full text-center text-3xl mt-4">First Degree</div>
-                                <div className="text-xl">
-                                    For your first degree, you need to select a WAEC/NECO and JAMB result to use for the evaluation.
-                                </div>
-                                <div className="w-full flex items-center justify-end">
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-red-500 text-red-500 font-bold transition hover:bg-red-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Close</button>
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 border-3 border-blue-500 text-blue-500 font-bold transition hover:bg-blue-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
-                                </div>
+                        <CarouselLayout>
+                            <div className="w-full text-center text-3xl mt-4">First Degree</div>
+                            <div className="text-xl">
+                                For your first degree, you need to select a WAEC/NECO and JAMB result to use for the evaluation.
                             </div>
-                        </div>
+                            <div className="w-full flex items-center justify-end">
+                                <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-red-500 text-red-500 font-bold transition hover:bg-red-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Close</button>
+                                <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 border-3 border-blue-500 text-blue-500 font-bold transition hover:bg-blue-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
+                            </div>
+                        </CarouselLayout>
                     </Carousel.Item>
+                
                     <Carousel.Item>
-                        <div className="align-image h-100 relative">
-                            <img
-                                className="d-block"
-                                src="/images/waec.png"
-                                alt="First slide"
-                            />
-                            <div className="p-8 items-start flex flex-col justify-between absolute left-0 right-0 top-0 bottom-0 bg-black bg-opacity-75 text-gray-200 font-bold">
-                                <div className="w-full text-center text-3xl mt-4">First Degree</div>
+                        <CarouselLayout>
+                            <div className="w-full text-center text-3xl mt-4">First Degree</div>
                                 <div className="my-10 w-full overflow-y-auto">
                                     <div className="text-xl ml-4 mb-3">Please select your WAEC or NECO result for evaluation:</div>
                                     {waecUploaded.length > 0 ?
@@ -188,21 +217,14 @@ export default function EvaluateResult({
                                     }
                                 </div>
                                 <div className="w-full flex items-center justify-end">
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 border-3 border-blue-400 text-blue-400 font-bold transition hover:bg-blue-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 border-3 border-blue-400 text-blue-400 font-bold transition hover:bg-blue-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
                                 </div>
-                            </div>
-                        </div>
+                        </CarouselLayout>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <div className="align-image h-100 relative rounded">
-                            <img
-                                className="d-block rounded"
-                                src="/images/jamb.jpg"
-                                alt="First slide"
-                            />
-                            <div className="p-8 items-start flex flex-col justify-between rounded absolute left-0 right-0 top-0 bottom-0 bg-black bg-opacity-75 text-gray-200 font-bold">
-                                <div className="w-full text-center text-3xl mt-4">First Degree</div>
+                        <CarouselLayout style="rounded">
+                            <div className="w-full text-center text-3xl mt-4">First Degree</div>
                                 <div className="my-10 overflow-y-auto w-full">
                                     <div className="text-xl ml-4 mb-3">Please select your JAMB result for evaluation:</div>
                                     {jambUploaded.length > 0 ?
@@ -237,11 +259,10 @@ export default function EvaluateResult({
                                     }
                                 </div>
                                 <div className="w-full flex items-center justify-end">
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 border-3 border-blue-400 text-blue-400 font-bold transition hover:bg-blue-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 border-3 border-blue-400 text-blue-400 font-bold transition hover:bg-blue-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
                                 </div>
-                            </div>
-                        </div>
+                        </CarouselLayout>
                     </Carousel.Item>
                     <Carousel.Item>
                         <div className="align-image h-100 relative rounded">
@@ -265,8 +286,8 @@ export default function EvaluateResult({
                                     </div>
                                 </div>
                                 <div className="w-full flex items-center justify-end">
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 border-3 border-green-400 text-green-400 font-bold transition hover:bg-green-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Submit</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 border-3 border-green-400 text-green-400 font-bold transition hover:bg-green-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -295,8 +316,8 @@ export default function EvaluateResult({
                                     For your maasters degree, you need to select a WAEC/NECO and your first degree result to use for the evaluation.
                                 </div>
                                 <div className="w-full flex items-center justify-end">
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-red-500 text-red-500 font-bold transition hover:bg-red-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Close</button>
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 border-3 border-blue-500 text-blue-500 font-bold transition hover:bg-blue-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-red-500 text-red-500 font-bold transition hover:bg-red-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Close</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 border-3 border-blue-500 text-blue-500 font-bold transition hover:bg-blue-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
                                 </div>
                             </div>
                         </div>
@@ -341,8 +362,8 @@ export default function EvaluateResult({
                                     }
                                 </div>
                                 <div className="w-full flex items-center justify-end">
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 border-3 border-blue-400 text-blue-400 font-bold transition hover:bg-blue-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 border-3 border-blue-400 text-blue-400 font-bold transition hover:bg-blue-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
                                 </div>
                             </div>
                         </div>
@@ -390,8 +411,8 @@ export default function EvaluateResult({
                                     }
                                 </div>
                                 <div className="w-full flex items-center justify-end">
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 border-3 border-blue-400 text-blue-400 font-bold transition hover:bg-blue-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 border-3 border-blue-400 text-blue-400 font-bold transition hover:bg-blue-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Next</button>
                                 </div>
                             </div>
                         </div>
@@ -418,8 +439,8 @@ export default function EvaluateResult({
                                     </div>
                                 </div>
                                 <div className="w-full flex items-center justify-end">
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
-                                    <button className='rounded w-1/5 bg-initial px-6 py-2 border-3 border-green-400 text-green-400 font-bold transition hover:bg-green-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Submit</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 mx-4 border-3 border-yellow-500 text-yellow-500 font-bold transition hover:bg-yellow-500 duration-200 hover:text-white shadow-md' onClick={() => changeIndex()}>Previous</button>
+                                    <button className='rounded w-2/5 md:w-1/5 bg-initial px-6 py-2 border-3 border-green-400 text-green-400 font-bold transition hover:bg-green-400 duration-200 hover:text-white shadow-md' onClick={() => changeIndex(true)}>Submit</button>
                                 </div>
                             </div>
                         </div>

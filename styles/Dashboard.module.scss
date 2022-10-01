@@ -29,3 +29,15 @@
 .necoImage {
     background-image: url('/images/neco.jpg')
 }
+
+@media screen and (max-width: 600px) {
+    .resultCard {
+        width: 100%;
+        margin: 16px 0;
+    }
+    
+    .documentCard {
+        width: 95%;
+        margin: 16px 2.5%;
+    }
+}

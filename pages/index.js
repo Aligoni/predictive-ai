@@ -29,9 +29,16 @@ export default function Home() {
         setLoggedIn(true)
       } else {
         setLoggedIn(false)
+
+        if (router.query?.login) {
+          setShowModal(true)
+        }
       }
     } catch (e) {
       setLoggedIn(false)
+      if (router.query?.login) {
+        setShowModal(true)
+      }
     }
   }, [])
 
@@ -142,9 +149,9 @@ export default function Home() {
   return (
     <div className="">
       <div className="flex flex-col min-h-screen relative justify-between" style={{ backgroundColor: "rgb(19, 19, 19)"}}>
-        <div className="z-10 flex items-center justify-between px-6">
+        <div className="z-10 flex items-center justify-end md:justify-between md:px-6">
           {/* <img className="w-24 h-16 my-3 ml-3" src="/logo.png" alt="logo"></img> */}
-          <p className="text-2xl font-bold text-blue-700 ml-3">Predictive Grader</p>
+          <p className="hidden md:inline text-2xl font-bold text-blue-700 ml-3">Predictive Grader</p>
           <div className="flex items-center my-5">
             {!loggedIn ? 
               <>
@@ -159,18 +166,18 @@ export default function Home() {
                   </Link>
                 </div>
               </> :
-              <div className="text-xl mr-5 ml-3 mt-3 ">
+              <div className="md:text-xl mr-5 ml-3 mt-3 ">
                 <Link href="/dashboard">
-                  <p className="cursor-pointer font-bold text-2xl text-gray-400">Dashboard</p>
+                  <p className="cursor-pointer font-bold md:text-2xl text-gray-400">Dashboard</p>
                 </Link>
               </div>
             }
           </div>
         </div>
 
-        <div className="w-full flex items-center justify-between">
+        <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between">
           <div className="flex-1">
-            <p className="text-5xl text-right leading-loose text-gray-200">
+            <p className="text-5xl text-center mx-4 md:mx-0 md:text-right leading-loose text-gray-200">
               Analyze Student's Early Performance Using Artificial Neural Network 
             </p>
           </div>
@@ -180,11 +187,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex pt-10 items-center bg-gray-100 justify-center">
+      <div className="flex flex-col md:flex-row pt-10 items-center bg-gray-100 justify-center">
         <div className="flex-1 flex items-center justify-center">
           <img src="/images/degree transparent.png" alt="degree" />
         </div>
-        <div className="flex-1 pr-10">
+        <div className="flex-1 md:pr-10">
           <div className="text-4xl text-center border-b-8 pb-4 border-blue-600 mb-10">
             We Can Help You Identify Your Strengths
           </div>

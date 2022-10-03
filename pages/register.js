@@ -98,7 +98,7 @@ export default function Register() {
     }
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-100 to-blue-300">
+        <div className="flex-col md:flex-row flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-100 to-blue-300">
             <div className="flex-1 flex items-center justify-center">
                 <div className="text-center">
                     <p className="text-4xl font-bold mb-4">Results Grader</p>
@@ -109,7 +109,7 @@ export default function Register() {
                 </div>
             </div>
             <div className="flex-1">
-                <div className="mx-10">
+                <div className="md:mx-10">
 
                     <Form
                         onSubmit={(submitDocument)}
@@ -153,7 +153,7 @@ export default function Register() {
                             </Form.Group>
                         </div>
 
-                        <div className="flex items-center justify-center">
+                        <div className="flex-col md:flex-row flex items-center justify-center">
                             <Form.Group className="md:flex-1 px-4 mt-4 text-md" controlId="faculty">
                                 <Form.Label>Faculty of Choice</Form.Label>
                                 <Form.Select 
@@ -167,7 +167,7 @@ export default function Register() {
                                     )}
                                 </Form.Select>
                             </Form.Group>
-                            <Form.Group className="md:flex-1 px-4 mt-4 text-md" controlId="program">
+                            <Form.Group className="md:flex-1 px-4 mt-4 text-md w-full" controlId="program">
                                 <Form.Label>Program of Choice</Form.Label>
                                 <Form.Select className="text-sm" required>
                                     <option value={''}>Select Program</option>

@@ -10,6 +10,7 @@ import axios from 'axios'
 
 import styles from '../styles/Dashboard.module.scss'
 import 'react-toastify/dist/ReactToastify.css';
+import { Modal, ProgressBar } from 'react-bootstrap'
 
 const types = [
     {
@@ -31,6 +32,8 @@ const typeStyles = {
 export default function Dashboard() {
     const [showModal, setShowModal] = useState(false)
     const [documentType, setDocumentType] = useState({})
+    const [evaluation, setEvaluation] = useState({})
+    const [modal, setModal] = useState(false)
     const [authUser, setAuthUser] = useState({})
 
     useEffect(() => {
@@ -38,6 +41,11 @@ export default function Dashboard() {
         try {
             user = JSON.parse(user)
             if (user.id) {
+                if (user.evaluations.length > 0) {
+                    for (let i = 0; i < user.evaluations.length; i ++) {
+                        user.evaluations[i].details.sort((a, b) => b.score - a.score)
+                    }
+                }
                 setAuthUser(user)
             } else {
                 localStorage.removeItem('predictive-user')
@@ -62,6 +70,60 @@ export default function Dashboard() {
             score > 49 ? "Good" : "Poor"
     }
 
+    const displaySelectedModal = () => {
+        return (
+            <Modal
+                show={modal}
+                onHide={() => setModal(false)}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                backdrop='static'
+                keyboard={false}
+                centered
+            >
+                <div className="bg-white shadow-xl roundex">
+                    <div className="flex p-2 bg-blue-700 justify-between items center text-gray-200">
+                        <p className="ml-2 text-3xl">{evaluation.type}</p>
+                        <div onClick={() => setModal(false)} className="cursor-pointer p-2 text-xl">
+                            X
+                        </div>
+                    </div>
+                    {
+                    evaluation.type == 'First Degree' ?
+                        <div>
+                            <div className="md:flex align-items justify-between md:my-2 md:mx-3 font-bold">
+                                <p className="text-lg">Recommendation: {evaluation.recommended}</p>
+                                <p className="truncate md:text-right text-lg">Viability: {getViability(evaluation.score)}</p>
+                            </div>
+                            <div className="md:flex align-items md:mb-2 md:mx-3 font-bold">
+                                <p className="flex-1 text-lg">Credentials used: JAMB
+                                {evaluation.waecId ? ', WAEC': ', NECO'}</p>
+                                {/* <p className="flex-1 truncate md:text-right text-lg">Score: {evaluation.jambScore}</p> */}
+                            </div>
+                            <div className="text-2xl py-1 border-b-2 border-t-2 border-blue-700 my-2 text-blue-700 text-center">
+                                All courses evaluation
+                            </div>
+                            <div className="p-3">
+                                {evaluation.details.map((item, i) =>
+                                    <div key={i} className="md:flex align-items justify-between md:mb-2 md:mx-3">
+                                        <p className="flex-1 truncate text-lg font-bold">{item.course}</p>
+                                        <div className={`${styles.progressBarContainer} flex-1 flex flex-col justify-center`}>
+                                        <ProgressBar now={item.score} label={`${item.score}%`}/>
+                                        </div>
+                                        {/* <p className="flex-1 truncate text-lg">{item.score}</p> */}
+                                    </div>
+                                )}
+                            </div>
+                            <div className="text-xl py-1 border-b-2 border-blue-700 mb-2 px-4">
+                            </div>
+                            <div className="text-right m-4 text-xl font-bold">Upload Date: {new Date(evaluation.updatedAt).toDateString()}</div>
+                        </div>: null
+                    }
+                </div>
+            </Modal>
+        )
+    }
+
     return (
         <div className="min-h-screen bg-blue-100">
             <Navbar page='Dashboard'/>
@@ -72,7 +134,7 @@ export default function Dashboard() {
                 <div className="flex justify-start w-full flex-wrap my-8 px-8">
                     {authUser.evaluations.map((document, i) =>
                         <div key={i} className={`${styles.resultCard} ${document.type == 'First Degree' ? styles.degreeImage : document.type == 'NECO' ? styles.necoImage : ''} shadow-lg rounded-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105`}>
-                            <div onClick={() => {}} className={`text-gray-200 font-bold bg-blue-700 bg-opacity-75 rounded-xl p-4 text-lg cursor-pointer`}>
+                            <div onClick={() => {setModal(true);setEvaluation(document)}} className={`text-gray-200 font-bold bg-blue-700 bg-opacity-75 rounded-xl p-4 text-lg cursor-pointer`}>
 
                                 <div className="md:flex align-items justify-between md:mb-2">
                                     <p className="flex-1 text-lg truncate">Type: {document.type}</p>
@@ -146,6 +208,8 @@ export default function Dashboard() {
                 showModal={showModal} 
                 setShowModal={setShowModal} 
             />
+
+            {displaySelectedModal()}()
 
             <Footer />
             <ToastContainer />

@@ -23,7 +23,7 @@ export default function EvaluateResult({
     const jambUploaded = authUser.jambs
 
     useEffect(() => {
-        console.log(authUser)
+        // console.log(authUser)
     }, [])
 
     const changeIndex = (next) => {

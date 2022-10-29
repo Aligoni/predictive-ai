@@ -71,6 +71,11 @@ export default function Dashboard() {
     }
 
     const displaySelectedModal = () => {
+        const progressColor = (score) => {
+            return score > 79 ? "success" :
+                score > 69 ? "info" :
+                score > 49 ? "warning" : "danger"
+        }
         return (
             <Modal
                 show={modal}
@@ -107,8 +112,8 @@ export default function Dashboard() {
                                 {evaluation.details.map((item, i) =>
                                     <div key={i} className="md:flex align-items justify-between md:mb-2 md:mx-3">
                                         <p className="flex-1 truncate text-lg font-bold">{item.course}</p>
-                                        <div className={`${styles.progressBarContainer} flex-1 flex flex-col justify-center`}>
-                                        <ProgressBar now={item.score} label={`${item.score}%`}/>
+                                        <div className={`progressBarContainer flex-1 flex flex-col justify-center`}>
+                                        <ProgressBar variant={progressColor(item.score)} now={item.score} label={`${item.score}%`}/>
                                         </div>
                                         {/* <p className="flex-1 truncate text-lg">{item.score}</p> */}
                                     </div>

@@ -6,7 +6,6 @@ import NextProgress from "next-progress"
 
 import React, { useState, useEffect } from 'react'
 import styles from '../styles/MyApp.module.scss'
-import Spinner from 'react-bootstrap/Spinner'
 import { SERVER } from '../services/api'
 
 import axios from 'axios'

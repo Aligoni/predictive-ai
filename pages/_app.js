@@ -47,7 +47,6 @@ function MyApp({ Component, pageProps }) {
         setLoading(false)
       }
     } else {
-      // localStorage.removeItem('predictive-user')
       setLoading(false)
     }
   }, [])
